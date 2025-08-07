@@ -1,5 +1,3 @@
----
-
 # 🌴 FloridaDev Portfolio
 
 Welcome to my personal software engineering portfolio — a modern, Florida-inspired single-page website built with **React**, **Vite**, and **Tailwind CSS**. It showcases my skills, selected projects, and includes an integrated contact form for freelance, collaboration, or job opportunities.
@@ -61,5 +59,3 @@ This site uses a **honeypot** technique to prevent spam bots from abusing the co
 ## 🪪 License
 
 This project is open source under the [MIT License](LICENSE).
-
----
