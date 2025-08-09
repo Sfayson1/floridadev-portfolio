@@ -50,12 +50,6 @@ Hosted on [**Vercel**](https://vercel.com/):
 
 ---
 
-## 🛡️ Spam Protection
-
-This site uses a **honeypot** technique to prevent spam bots from abusing the contact form — no CAPTCHA required.
-
----
-
 ## 🪪 License
 
 This project is open source under the [MIT License](LICENSE).
