@@ -48,8 +48,8 @@ const Navigation = () => {
                 {item.label}
               </a>
             ))}
-            <Button variant="hero" size="sm" className="ml-4">
-              Resume
+            <Button variant="hero" size="sm" className="ml-4" onClick={() => window.open("https://www.linkedin.com/in/sherika-fayson/", '_blank')}>
+              LinkedIn
             </Button>
           </div>
 
@@ -78,8 +78,8 @@ const Navigation = () => {
                   {item.label}
                 </a>
               ))}
-              <Button variant="hero" size="sm" className="mt-4 w-full">
-                Resume
+              <Button variant="hero" size="sm" className="mt-4 w-full" onClick={() => window.open("https://www.linkedin.com/in/sherika-fayson/", '_blank')}>
+                LinkedIn
               </Button>
             </div>
           </div>

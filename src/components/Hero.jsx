@@ -47,6 +47,11 @@ const Hero = () => {
      contactSection?.scrollIntoView({ behavior: "smooth" });
   };
 
+    const handleProjects = () => {
+    const contactSection = document.querySelector("#projects");
+     contactSection?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -86,7 +91,7 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button size="lg" variant="hero" className="px-8 py-3 text-lg">
+            <Button size="lg" variant="hero" className="px-8 py-3 text-lg" onClick={handleProjects}>
               View My Work
             </Button>
             <Button size="lg" variant="ocean" className="px-8 py-3 text-lg" onClick={handleContactme}>

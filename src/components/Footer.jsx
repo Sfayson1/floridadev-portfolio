@@ -28,7 +28,7 @@ const Footer = () => {
               <Linkedin className="w-5 h-5 text-background group-hover:text-white transition-colors" />
             </a>
             <a
-              href="#"
+              href="mailto:sherika.fayson@proton.me"
               className="w-12 h-12 bg-primary/10 hover:bg-primary rounded-full flex items-center justify-center transition-colors group"
             >
               <Mail className="w-5 h-5 text-background group-hover:text-white transition-colors" />
