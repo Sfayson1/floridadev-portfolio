@@ -38,7 +38,7 @@ src/
 ## 🌐 Live Site
 
 Hosted on [**Vercel**](https://vercel.com/):
-**[https://florida-dev.vercel.app](https://florida-dev.vercel.app)** *(replace with your actual URL once deployed)*
+**[View my portfolio](https://sherikafayson.com)** 
 
 ---
 
