@@ -84,8 +84,8 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
-            A.A.S. Computer Information Science graduate with Software
-            Development concentration. Former USMC avionics technician bringing
+            A.S. Computer Information Science graduate with Software
+            Development concentration. U.S. Marine Corps Aviation Avionics Technician bringing
             technical expertise and problem-solving skills to innovative
             software solutions.
           </p>
