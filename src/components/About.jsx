@@ -22,7 +22,7 @@ A graduate of ECPI University with an A.S. in Computer Information Science and a
               </div>
               <h3 className="text-xl font-semibold mb-3">Full-Stack Development</h3>
               <p className="text-muted-foreground">
-                A.A.S. in Computer Information Science with hands-on experience in React, Python, SQL, and cloud solutions
+                A.S. in Computer Information Science with hands-on experience in React, Python, SQL, and cloud solutions
               </p>
             </CardContent>
           </Card>
