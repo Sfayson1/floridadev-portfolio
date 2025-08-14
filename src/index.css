@@ -104,11 +104,6 @@ All colors MUST be HSL.
   }
 }
 
-.subtitle {
-  font-family: 'Special Elite', monospace;
-  /* your existing styles */
-}
-
 @layer base {
   * {
     @apply border-border;
