@@ -8,6 +8,7 @@ const Hero = () => {
   const [titleText, setTitleText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const [currentPhase, setCurrentPhase] = useState("name");
+  const [typingComplete, setTypingComplete] = useState(false);
 
   const fullName = "Sherika Fayson";
   const fullTitle = "Software Engineer";
@@ -82,7 +83,6 @@ const Hero = () => {
               )}
             </div>
           </h1>
-
           <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
             A.A.S. Computer Information Science graduate with Software
             Development concentration. Former USMC avionics technician bringing

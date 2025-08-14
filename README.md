@@ -38,13 +38,13 @@ src/
 ## 🌐 Live Site
 
 Hosted on [**Vercel**](https://vercel.com/):
-**[https://florida-dev.vercel.app](https://florida-dev.vercel.app)** *(replace with your actual URL once deployed)*
+**[View my portfolio](https://sherikafayson.com)** 
 
 ---
 
 ## 📫 Contact
 
-* 🌐 **Portfolio Contact Form** – [Send a message](https://florida-dev.vercel.app/#contact)
+* 🌐 **Portfolio Contact Form** – [Send a message](https://sherikafayson.com/#contact)
 * 💼 [LinkedIn](https://www.linkedin.com/in/sherika-fayson/)
 * 💻 [GitHub](https://github.com/Sfayson1)
 

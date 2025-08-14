@@ -10,9 +10,7 @@ const About = () => {
             About Me
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            A.A.S. Computer Information Science graduate from ECPI University with Software Development concentration.
-            Former USMC aviation avionics technician bringing military precision, technical troubleshooting
-            expertise, and teamwork skills to software development.
+A graduate of ECPI University with an A.S. in Computer Information Science and a concentration in Software Development. As a U.S. Marine Corps Aviation Avionics Technician, I bring a unique blend of military precision, technical troubleshooting expertise, and teamwork skills to software development. 
           </p>
         </div>
 
@@ -24,7 +22,7 @@ const About = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Full-Stack Development</h3>
               <p className="text-muted-foreground">
-                A.A.S. in Computer Information Science with hands-on experience in React, Python, SQL, and cloud solutions
+                A.S. in Computer Information Science with hands-on experience in React, Python, SQL, and cloud solutions
               </p>
             </CardContent>
           </Card>
@@ -36,7 +34,7 @@ const About = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Military Background</h3>
               <p className="text-muted-foreground">
-                Former USMC aviation avionics technician with expertise in technical troubleshooting and problem-solving
+                U.S. Marine Corps Aviation Avionics Technician with expertise in technical troubleshooting and problem-solving
               </p>
             </CardContent>
           </Card>
