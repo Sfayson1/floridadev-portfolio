@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -102,7 +103,6 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 
 .subtitle {
   font-family: 'Special Elite', monospace;
