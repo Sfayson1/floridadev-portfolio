@@ -75,24 +75,27 @@ useEffect(() => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 text-center text-white">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <div>
-              Hi, I'm{" "}
-              <span className="bg-gradient-sunset bg-clip-text text-transparent">
-                {nameText}
-                {currentPhase === "name" && showCursor && (
-                  <span className="animate-pulse">|</span>
-                )}
-              </span>
-            </div>
-            <div className="block">
-              {titleText}
-              {currentPhase === "title" && showCursor && (
-                <span className="animate-pulse">|</span>
-              )}
-            </div>
+<div className="relative z-10 container mx-auto px-4 text-center text-white">
+  <div className="max-w-4xl mx-auto">
+    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      <div>
+        Hi, I'm{" "}
+        <span className="bg-gradient-sunset bg-clip-text text-transparent">
+          {nameText}
+          {currentPhase === "name" && showCursor && (
+            <span className="animate-pulse">|</span>
+          )}
+        </span>
+      </div>
+      <div className="block font-special-elite text-4xl md:text-5xl font-normal tracking-wide">
+        {titleText}
+        {currentPhase === "title" && showCursor && (
+          <span className="animate-pulse">|</span>
+        )}
+      </div>
+    </h1>
+  </div>
+</div>
           </h1>
 
           <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
