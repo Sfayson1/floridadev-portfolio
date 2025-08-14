@@ -44,12 +44,12 @@ const Hero = () => {
 
   const handleContactme = () => {
     const contactSection = document.querySelector("#contact");
-     contactSection?.scrollIntoView({ behavior: "smooth" });
+    contactSection?.scrollIntoView({ behavior: "smooth" });
   };
 
-    const handleProjects = () => {
+  const handleProjects = () => {
     const contactSection = document.querySelector("#projects");
-     contactSection?.scrollIntoView({ behavior: "smooth" });
+    contactSection?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -75,7 +75,7 @@ const Hero = () => {
                 )}
               </span>
             </div>
-            <div className="block">
+            <div className="block font-special-elite text-4xl md:text-5xl font-normal tracking-wide">
               {titleText}
               {currentPhase === "title" && showCursor && (
                 <span className="animate-pulse">|</span>
@@ -91,10 +91,20 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <Button size="lg" variant="hero" className="px-8 py-3 text-lg" onClick={handleProjects}>
+            <Button
+              size="lg"
+              variant="hero"
+              className="px-8 py-3 text-lg"
+              onClick={handleProjects}
+            >
               View My Work
             </Button>
-            <Button size="lg" variant="ocean" className="px-8 py-3 text-lg" onClick={handleContactme}>
+            <Button
+              size="lg"
+              variant="ocean"
+              className="px-8 py-3 text-lg"
+              onClick={handleContactme}
+            >
               Contact Me
             </Button>
           </div>
