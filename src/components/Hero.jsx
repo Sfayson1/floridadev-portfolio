@@ -13,35 +13,44 @@ const Hero = () => {
   const fullName = "Sherika Fayson";
   const fullTitle = "Software Engineer";
 
-  useEffect(() => {
-    let interval;
+useEffect(() => {
+  let interval;
+  if (currentPhase === "name" && nameText.length < fullName.length) {
+    interval = setTimeout(() => {
+      setNameText(fullName.slice(0, nameText.length + 1));
+    }, 100);
+  } else if (currentPhase === "name" && nameText.length === fullName.length) {
+    interval = setTimeout(() => {
+      setCurrentPhase("title");
+    }, 500);
+  } else if (
+    currentPhase === "title" &&
+    titleText.length < fullTitle.length
+  ) {
+    interval = setTimeout(() => {
+      setTitleText(fullTitle.slice(0, titleText.length + 1));
+    }, 100);
+  } else if (
+    currentPhase === "title" &&
+    titleText.length === fullTitle.length
+  ) {
+    interval = setTimeout(() => {
+      setTypingComplete(true);
+    }, 1000);
+  }
+  return () => clearTimeout(interval);
+}, [nameText, titleText, currentPhase, fullName, fullTitle]);
 
-    if (currentPhase === "name" && nameText.length < fullName.length) {
-      interval = setTimeout(() => {
-        setNameText(fullName.slice(0, nameText.length + 1));
-      }, 100);
-    } else if (currentPhase === "name" && nameText.length === fullName.length) {
-      interval = setTimeout(() => {
-        setCurrentPhase("title");
-      }, 500);
-    } else if (
-      currentPhase === "title" &&
-      titleText.length < fullTitle.length
-    ) {
-      interval = setTimeout(() => {
-        setTitleText(fullTitle.slice(0, titleText.length + 1));
-      }, 100);
-    }
-    return () => clearTimeout(interval);
-  }, [nameText, titleText, currentPhase, fullName, fullTitle]);
-
-  useEffect(() => {
+useEffect(() => {
+  if (!typingComplete) {
     const cursorInterval = setInterval(() => {
       setShowCursor((prev) => !prev);
     }, 500);
-
     return () => clearInterval(cursorInterval);
-  }, []);
+  } else {
+    setShowCursor(false);
+  }
+}, [typingComplete]);
 
   const handleContactme = () => {
     const contactSection = document.querySelector("#contact");
