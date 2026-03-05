@@ -57,6 +57,16 @@ const Projects = () => {
               </CardHeader>
 
               <CardContent>
+                {/* Visual proof strip */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <a href="https://github.com/Sfayson1/Luma/actions/workflows/test.yml" target="_blank" rel="noopener noreferrer">
+                    <img src="https://github.com/Sfayson1/Luma/actions/workflows/test.yml/badge.svg" alt="Tests" />
+                  </a>
+                  <a href="https://codecov.io/gh/Sfayson1/Luma" target="_blank" rel="noopener noreferrer">
+                    <img src="https://codecov.io/gh/Sfayson1/Luma/branch/main/graph/badge.svg" alt="Coverage" />
+                  </a>
+                </div>
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, techIndex) => (
                     <Badge
