@@ -9,8 +9,8 @@ const Projects = () => {
   const projects = [
     {
       title: "Luma",
-      description: "Sole developer on Luma from concept to production — a mindful journaling app with secure user authentication, a FastAPI REST API, and Neon PostgreSQL database, deployed end-to-end on Render.",
-      tech: ["Python", "FastAPI", "Neon", "Render", "React"],
+      description: "Sole developer on Luma from concept to production — a mindful journaling app with secure user authentication, a FastAPI REST API, and Neon PostgreSQL database. Frontend on Vercel, backend on Render.",
+      tech: ["Python", "FastAPI", "Neon", "Vercel", "Render", "React"],
       github: "https://github.com/Sfayson1/Luma",
       live: "https://www.lumajournal.com/demo",
       artifact: "/artifacts/luma",

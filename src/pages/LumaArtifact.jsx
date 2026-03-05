@@ -32,9 +32,15 @@ const ArchDiagram = () => (
       </div>
 
       {/* Hosting note */}
-      <div className="mt-2 w-full max-w-xs border border-border rounded-lg px-4 py-3 text-center text-muted-foreground">
-        <p className="font-semibold text-foreground">Render</p>
-        <p className="text-xs mt-1">Hosts frontend + backend · Auto-deploy on push</p>
+      <div className="mt-2 w-full max-w-xs flex gap-3">
+        <div className="flex-1 border border-border rounded-lg px-3 py-3 text-center text-muted-foreground">
+          <p className="font-semibold text-foreground text-sm">Vercel</p>
+          <p className="text-xs mt-1">Hosts frontend</p>
+        </div>
+        <div className="flex-1 border border-border rounded-lg px-3 py-3 text-center text-muted-foreground">
+          <p className="font-semibold text-foreground text-sm">Render</p>
+          <p className="text-xs mt-1">Hosts backend</p>
+        </div>
       </div>
     </div>
   </div>
@@ -127,8 +133,8 @@ const LumaArtifact = () => {
           <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
             Luma is a decoupled full-stack app: a React frontend communicates with a FastAPI
-            backend over REST, backed by a Neon PostgreSQL database. Both the frontend and
-            backend are deployed on Render with automatic deploys on push to main.
+            backend over REST, backed by a Neon PostgreSQL database. The frontend is deployed
+            on Vercel and the backend on Render, both with automatic deploys on push to main.
           </p>
           <ArchDiagram />
         </section>
