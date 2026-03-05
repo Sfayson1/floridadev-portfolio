@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/florida-hero-bg.jpg";
 
 const FULL_NAME = "Sherika Fayson";
 const FULL_TITLE = "Software Engineer";
 
 const Hero = () => {
+  const navigate = useNavigate();
   const [nameText, setNameText] = useState("");
   const [titleText, setTitleText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
@@ -57,11 +59,6 @@ useEffect(() => {
     contactSection?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleProjects = () => {
-    const contactSection = document.querySelector("#projects");
-    contactSection?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -103,9 +100,9 @@ useEffect(() => {
               size="lg"
               variant="hero"
               className="px-8 py-3 text-lg"
-              onClick={handleProjects}
+              onClick={() => navigate("/artifacts/luma")}
             >
-              View My Work
+              View Artifacts
             </Button>
             <Button
               size="lg"

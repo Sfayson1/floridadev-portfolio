@@ -14,6 +14,7 @@ const Projects = () => {
       github: "https://github.com/Sfayson1/Luma",
       live: "https://www.lumajournal.com/demo",
       artifact: "/artifacts/luma",
+      impact: "Private journaling with mood tracking and analytics — designed, built, and deployed solo from first commit to production.",
       featured: true
     }
   ];
@@ -49,6 +50,9 @@ const Projects = () => {
                         </Badge>
                       )}
                     </CardTitle>
+                    {project.impact && (
+                      <p className="text-sm font-semibold text-primary mt-1">{project.impact}</p>
+                    )}
                   </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
