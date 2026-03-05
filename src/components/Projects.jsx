@@ -59,6 +59,9 @@ const Projects = () => {
               <CardContent>
                 {/* Visual proof strip */}
                 <div className="flex flex-wrap gap-2 mb-4">
+                  <a href="https://github.com/Sfayson1/Luma/actions/workflows/lint.yml" target="_blank" rel="noopener noreferrer">
+                    <img src="https://github.com/Sfayson1/Luma/actions/workflows/lint.yml/badge.svg" alt="Lint" />
+                  </a>
                   <a href="https://github.com/Sfayson1/Luma/actions/workflows/test.yml" target="_blank" rel="noopener noreferrer">
                     <img src="https://github.com/Sfayson1/Luma/actions/workflows/test.yml/badge.svg" alt="Tests" />
                   </a>
