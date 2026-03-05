@@ -9,37 +9,36 @@ import Footer from "@/components/Footer";
 const ArchDiagram = () => (
   <div className="bg-muted/40 rounded-xl p-6 border border-border">
     <div className="flex flex-col items-center gap-4 text-sm font-medium">
-      {/* Frontend */}
-      <div className="w-full max-w-xs bg-gradient-ocean text-white rounded-lg px-4 py-3 text-center">
-        <p className="font-semibold">React Frontend</p>
-        <p className="text-xs opacity-80 mt-1">UI · Auth pages · Journal views</p>
+      <div className="w-full max-w-sm bg-gradient-ocean text-white rounded-lg px-4 py-3 text-center">
+        <p className="font-semibold">React 19 + TypeScript Frontend</p>
+        <p className="text-xs opacity-80 mt-1">Vite · Tailwind v4 · Radix UI · Recharts · Tiptap</p>
       </div>
 
-      <div className="text-muted-foreground text-lg">↕ HTTP / REST</div>
+      <div className="text-muted-foreground text-lg">↕ HTTPS / REST · Bearer JWT</div>
 
-      {/* Backend */}
-      <div className="w-full max-w-xs bg-gradient-sunset text-white rounded-lg px-4 py-3 text-center">
+      <div className="w-full max-w-sm bg-gradient-sunset text-white rounded-lg px-4 py-3 text-center">
         <p className="font-semibold">FastAPI Backend</p>
-        <p className="text-xs opacity-80 mt-1">REST API · Auth · Business logic</p>
+        <p className="text-xs opacity-80 mt-1">
+          /auth · /posts · /prompts · /users
+        </p>
+        <p className="text-xs opacity-70 mt-1">SQLAlchemy ORM · python-jose JWT · bcrypt</p>
       </div>
 
-      <div className="text-muted-foreground text-lg">↕ SQL</div>
+      <div className="text-muted-foreground text-lg">↕ SQL via SQLAlchemy</div>
 
-      {/* Database */}
-      <div className="w-full max-w-xs bg-primary text-white rounded-lg px-4 py-3 text-center">
+      <div className="w-full max-w-sm bg-primary text-white rounded-lg px-4 py-3 text-center">
         <p className="font-semibold">Neon PostgreSQL</p>
-        <p className="text-xs opacity-80 mt-1">Users · Journal entries · Sessions</p>
+        <p className="text-xs opacity-80 mt-1">Users · Journal entries · Moods · Hashtags</p>
       </div>
 
-      {/* Hosting note */}
-      <div className="mt-2 w-full max-w-xs flex gap-3">
-        <div className="flex-1 border border-border rounded-lg px-3 py-3 text-center text-muted-foreground">
+      <div className="mt-2 w-full max-w-sm flex gap-3">
+        <div className="flex-1 border border-border rounded-lg px-3 py-3 text-center">
           <p className="font-semibold text-foreground text-sm">Vercel</p>
-          <p className="text-xs mt-1">Hosts frontend</p>
+          <p className="text-xs text-muted-foreground mt-1">Frontend · Auto-deploy on push to main</p>
         </div>
-        <div className="flex-1 border border-border rounded-lg px-3 py-3 text-center text-muted-foreground">
+        <div className="flex-1 border border-border rounded-lg px-3 py-3 text-center">
           <p className="font-semibold text-foreground text-sm">Render</p>
-          <p className="text-xs mt-1">Hosts backend</p>
+          <p className="text-xs text-muted-foreground mt-1">Backend · Auto-deploy on commit</p>
         </div>
       </div>
     </div>
@@ -48,6 +47,10 @@ const ArchDiagram = () => (
 
 const LumaArtifact = () => {
   const navigate = useNavigate();
+
+  const techFrontend = ["React 19", "TypeScript", "Vite 7", "Tailwind CSS v4", "Radix UI", "Tiptap", "Recharts", "React Router v7"];
+  const techBackend = ["Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "python-jose", "bcrypt", "Uvicorn"];
+  const techInfra = ["Neon", "Vercel", "Render"];
 
   return (
     <div className="min-h-screen bg-background">
@@ -70,7 +73,7 @@ const LumaArtifact = () => {
             <Badge className="bg-gradient-sunset text-white border-0">Featured</Badge>
           </div>
           <p className="text-xl text-muted-foreground leading-relaxed mb-6">
-            A personal journaling app built for quiet self-reflection — no feeds, no likes, no noise.
+            A private journaling app for mindful self-reflection — mood tracking, analytics, daily prompts, and no social noise.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button
@@ -91,34 +94,52 @@ const LumaArtifact = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-12">
-          {["React", "Python", "FastAPI", "Neon PostgreSQL", "Render"].map((t) => (
-            <Badge key={t} variant="secondary">{t}</Badge>
-          ))}
+        {/* Tech Stack */}
+        <div className="mb-12 space-y-3">
+          <div>
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Frontend</p>
+            <div className="flex flex-wrap gap-2">
+              {techFrontend.map((t) => <Badge key={t} variant="secondary">{t}</Badge>)}
+            </div>
+          </div>
+          <div>
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Backend</p>
+            <div className="flex flex-wrap gap-2">
+              {techBackend.map((t) => <Badge key={t} variant="secondary">{t}</Badge>)}
+            </div>
+          </div>
+          <div>
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Infrastructure</p>
+            <div className="flex flex-wrap gap-2">
+              {techInfra.map((t) => <Badge key={t} variant="secondary">{t}</Badge>)}
+            </div>
+          </div>
         </div>
 
-        {/* Section: Problem */}
+        {/* Problem */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">The Problem</h2>
           <p className="text-muted-foreground leading-relaxed">
             Most people who want to journal don't have a dedicated, distraction-free place to do it.
-            Existing options are either buried inside social platforms full of noise and comparison,
-            or generic note-taking apps that offer no structure for self-reflection. Luma is built
-            for one thing: a private, calm space to think, write, and reflect — without the pull
-            of an audience.
+            Existing options are either buried inside social platforms full of comparison and noise,
+            or generic note-taking apps with no structure for self-reflection. Luma is built for one
+            thing: a private, calm space to write, track your mood over time, and gain insight into
+            your emotional patterns — with no audience, no followers, and no likes.
           </p>
         </section>
 
-        {/* Section: Success Criteria */}
+        {/* What Done Looked Like */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">What "Done" Looked Like</h2>
           <ul className="space-y-2 text-muted-foreground">
             {[
-              "Users can create an account and log in securely",
-              "Users can create, read, update, and delete journal entries",
-              "Entries are private — no social features, no sharing",
-              "The app is deployed and accessible from any device",
-              "The API is documented and testable via FastAPI's built-in docs",
+              "Users can create an account and authenticate securely via JWT",
+              "Users can create, edit, delete, and search journal entries with mood and hashtag support",
+              "A new daily reflection prompt rotates automatically — no manual setup",
+              "Analytics dashboard shows mood trends, streak history, and writing patterns",
+              "All data is private — no social features of any kind",
+              "Frontend deployed on Vercel, backend on Render, with auto-deploy on push to main",
+              "Interactive API documentation available via FastAPI's built-in /docs",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="text-primary mt-1">✓</span>
@@ -128,18 +149,30 @@ const LumaArtifact = () => {
           </ul>
         </section>
 
-        {/* Section: Architecture */}
+        {/* Architecture */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Luma is a decoupled full-stack app: a React frontend communicates with a FastAPI
-            backend over REST, backed by a Neon PostgreSQL database. The frontend is deployed
-            on Vercel and the backend on Render, both with automatic deploys on push to main.
+            Luma is a decoupled full-stack app. The React + TypeScript frontend communicates with a
+            FastAPI backend over REST using JWT bearer tokens for authentication. SQLAlchemy manages
+            the database layer against a Neon PostgreSQL instance. The frontend auto-deploys to
+            Vercel on push to main; the backend auto-deploys to Render on commit.
           </p>
           <ArchDiagram />
+          <p className="text-xs text-muted-foreground mt-3">
+            Full Mermaid diagrams (system overview, request flow, auth flow, data model) in{" "}
+            <a
+              href="https://github.com/Sfayson1/Luma/blob/main/docs/architecture.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-foreground transition-colors"
+            >
+              docs/architecture.md
+            </a>
+          </p>
         </section>
 
-        {/* Section: Key Tradeoff */}
+        {/* Key Tradeoff */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">Key Technical Decision</h2>
           <Card className="border-primary/20 bg-primary/5">
@@ -148,23 +181,38 @@ const LumaArtifact = () => {
               <p className="text-muted-foreground leading-relaxed">
                 I chose FastAPI for the backend instead of the more familiar Express/Node.js stack.
                 The deciding factor was FastAPI's automatic interactive documentation — it generates
-                a live, testable API explorer out of the box. While building and debugging data
-                models, being able to visualize the schema and test endpoints directly in the browser
-                without a separate tool like Postman made the development loop significantly faster.
-                It was also an intentional choice to deepen my Python skills alongside the project.
+                a live, testable API explorer at <code className="text-xs bg-muted px-1 py-0.5 rounded">/docs</code> out
+                of the box. While building and debugging data models, being able to visualize the
+                schema and test endpoints directly in the browser — without a separate tool like
+                Postman — made the development loop significantly faster. It was also an intentional
+                choice to deepen my Python skills alongside the project.
               </p>
             </CardContent>
           </Card>
         </section>
 
-        {/* Section: What Went Wrong */}
+        {/* Observability */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Observability</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            The backend logs all requests via Uvicorn's access log — method, path, status code, and
+            response time. Errors surface through FastAPI's default exception handlers. In production,
+            the key signals to watch are HTTP 401/403 rates (auth failures), 500 error frequency, and{" "}
+            <code className="text-xs bg-muted px-1 py-0.5 rounded">/api/posts/</code> response
+            latency as the primary data-path endpoint. Render exposes these logs in the dashboard.
+            Adding structured logging with <code className="text-xs bg-muted px-1 py-0.5 rounded">structlog</code> and
+            a log drain to Datadog or Logtail is the identified next step for alerting.
+          </p>
+        </section>
+
+        {/* What Went Wrong / V2 */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">What I'd Change in V2</h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
             The biggest technical debt in Luma came from poorly planned data models early in the build.
-            Loose model definitions caused cascading issues in other parts of the codebase — a bug in
-            one model surfaced as a confusing error somewhere else entirely, which made troubleshooting
-            harder than it needed to be.
+            Loose model definitions caused cascading issues across the codebase — a bug in one model
+            surfaced as a confusing error somewhere else entirely, which made troubleshooting harder
+            than it needed to be.
           </p>
           <p className="text-muted-foreground leading-relaxed">
             If I rebuilt Luma today, I'd start by mapping out exactly what data the app needs before
@@ -174,15 +222,15 @@ const LumaArtifact = () => {
           </p>
         </section>
 
-        {/* Section: Constraints */}
+        {/* How It Was Built */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">How It Was Built</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Luma was a solo project built while actively learning parts of the stack. FastAPI, Neon,
-            and Render were all technologies I worked with hands-on for the first time during this
-            build. That constraint shaped the approach: build incrementally, lean on FastAPI's
-            built-in tooling to validate progress, and treat every bug as a learning checkpoint
-            rather than a blocker.
+            Luma was a solo project built while actively learning parts of the stack. FastAPI,
+            SQLAlchemy, Neon, and Render were all technologies worked with hands-on for the first
+            time during this build. The approach was incremental: build one feature end-to-end,
+            validate it with FastAPI's built-in docs, then move forward. Every bug became a learning
+            checkpoint rather than a blocker.
           </p>
         </section>
       </main>
