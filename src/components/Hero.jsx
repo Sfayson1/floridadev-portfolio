@@ -92,11 +92,11 @@ useEffect(() => {
               )}
             </div>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
-            A.S. Computer Information Science graduate with Software
-            Development concentration. U.S. Marine Corps Aviation Avionics Technician bringing
-            technical expertise and problem-solving skills to innovative
-            software solutions.
+          <p className="text-xl md:text-2xl mb-4 text-white/90 leading-relaxed">
+            I build full-stack web apps — bringing military precision and a software engineering degree to every problem I solve.
+          </p>
+          <p className="text-lg mb-8 text-white/75 font-medium tracking-wide uppercase">
+            Open to Junior Software Engineer roles
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button

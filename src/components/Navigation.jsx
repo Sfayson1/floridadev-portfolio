@@ -22,7 +22,19 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+    <div className="fixed top-0 w-full z-50">
+      {/* Recruiter Banner */}
+      <div className="bg-gradient-sunset text-white text-center text-sm py-2 px-4 font-medium">
+        Hiring a Junior Software Engineer?{" "}
+        <a
+          href="#projects"
+          className="underline underline-offset-2 hover:opacity-80 transition-opacity"
+        >
+          See my work →
+        </a>
+      </div>
+
+    <nav className={`w-full transition-all duration-300 ${
       isScrolled
         ? "bg-background/95 backdrop-blur-sm shadow-florida border-b border-border"
         : "bg-transparent"
@@ -86,6 +98,7 @@ const Navigation = () => {
         )}
       </div>
     </nav>
+    </div>
   );
 };
 

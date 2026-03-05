@@ -1,16 +1,19 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, BookOpen } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Projects = () => {
+  const navigate = useNavigate();
   const projects = [
     {
       title: "Luma",
-      description: "A full-stack mindful journaling app built with React, Python, and FastAPI, hosted on Render with a Neon PostgreSQL database, featuring user authentication and responsive design.",
+      description: "Sole developer on Luma from concept to production — a mindful journaling app with secure user authentication, a FastAPI REST API, and Neon PostgreSQL database, deployed end-to-end on Render.",
       tech: ["Python", "FastAPI", "Neon", "Render", "React"],
       github: "https://github.com/Sfayson1/Luma",
       live: "https://www.lumajournal.com/demo",
+      artifact: "/artifacts/luma",
       featured: true
     }
   ];
@@ -66,7 +69,7 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex gap-3 flex-wrap">
                   <Button
                     size="sm"
                     variant="outline"
@@ -85,6 +88,17 @@ const Projects = () => {
                     <ExternalLink className="w-4 h-4 mr-2" />
                     Demo
                   </Button>
+                  {project.artifact && (
+                    <Button
+                      size="sm"
+                      variant="hero"
+                      className="w-full mt-1"
+                      onClick={() => navigate(project.artifact)}
+                    >
+                      <BookOpen className="w-4 h-4 mr-2" />
+                      Read Case Study
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
