@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import heroImage from "@/assets/florida-hero-bg.jpg";
 
+const FULL_NAME = "Sherika Fayson";
+const FULL_TITLE = "Software Engineer";
+
 const Hero = () => {
   const [nameText, setNameText] = useState("");
   const [titleText, setTitleText] = useState("");
@@ -10,36 +13,33 @@ const Hero = () => {
   const [currentPhase, setCurrentPhase] = useState("name");
   const [typingComplete, setTypingComplete] = useState(false);
 
-  const fullName = "Sherika Fayson";
-  const fullTitle = "Software Engineer";
-
 useEffect(() => {
   let interval;
-  if (currentPhase === "name" && nameText.length < fullName.length) {
+  if (currentPhase === "name" && nameText.length < FULL_NAME.length) {
     interval = setTimeout(() => {
-      setNameText(fullName.slice(0, nameText.length + 1));
+      setNameText(FULL_NAME.slice(0, nameText.length + 1));
     }, 100);
-  } else if (currentPhase === "name" && nameText.length === fullName.length) {
+  } else if (currentPhase === "name" && nameText.length === FULL_NAME.length) {
     interval = setTimeout(() => {
       setCurrentPhase("title");
     }, 500);
   } else if (
     currentPhase === "title" &&
-    titleText.length < fullTitle.length
+    titleText.length < FULL_TITLE.length
   ) {
     interval = setTimeout(() => {
-      setTitleText(fullTitle.slice(0, titleText.length + 1));
+      setTitleText(FULL_TITLE.slice(0, titleText.length + 1));
     }, 100);
   } else if (
     currentPhase === "title" &&
-    titleText.length === fullTitle.length
+    titleText.length === FULL_TITLE.length
   ) {
     interval = setTimeout(() => {
       setTypingComplete(true);
     }, 1000);
   }
   return () => clearTimeout(interval);
-}, [nameText, titleText, currentPhase, fullName, fullTitle]);
+}, [nameText, titleText, currentPhase]);
 
 useEffect(() => {
   if (!typingComplete) {

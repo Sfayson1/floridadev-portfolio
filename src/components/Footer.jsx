@@ -17,12 +17,16 @@ const Footer = () => {
           <div className="flex justify-center space-x-6 mb-8">
             <a
               href="https://github.com/Sfayson1/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 bg-primary/10 hover:bg-primary rounded-full flex items-center justify-center transition-colors group"
             >
               <Github className="w-5 h-5 text-background group-hover:text-white transition-colors" />
             </a>
             <a
               href="https://www.linkedin.com/in/sherika-fayson/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 bg-primary/10 hover:bg-primary rounded-full flex items-center justify-center transition-colors group"
             >
               <Linkedin className="w-5 h-5 text-background group-hover:text-white transition-colors" />
@@ -43,7 +47,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="border-t border-background/20 pt-6">
             <p className="text-background/60 flex items-center justify-center">
-              © 2024 Florida Developer Portfolio. Made with
+              © {new Date().getFullYear()} Florida Developer Portfolio. Made with
               <Heart className="w-4 h-4 mx-1 text-red-400 fill-current" />
               in the Sunshine State
             </p>

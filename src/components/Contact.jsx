@@ -42,9 +42,14 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    emailjs.init(EMAILJS_PUBLIC_KEY);
-
     e.preventDefault();
+
+    if (formData.botField) {
+      console.warn("Spam detected – honeypot triggered.");
+      return;
+    }
+
+    emailjs.init(EMAILJS_PUBLIC_KEY);
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -84,18 +89,13 @@ const Contact = () => {
         email: "",
         subject: "",
         message: "",
+        botField: "",
       });
     } catch (error) {
       console.error("Failed to send email:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
-    }
-
-    if (formData.botField) {
-      console.warn("Spam detected – honeypot triggered.");
-      setIsSubmitting(false);
-      return;
     }
   };
 

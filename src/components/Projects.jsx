@@ -7,10 +7,10 @@ const Projects = () => {
   const projects = [
     {
       title: "Luma",
-      description: "A full-stack mindful journaling app built with React, TypeScript, and Supabase, featuring user authentication, real-time data sync, and responsive design.",
-      tech: ["Python", "FastAPI", "Supabase", "React"],
+      description: "A full-stack mindful journaling app built with React, Python, and FastAPI, hosted on Render with a Neon PostgreSQL database, featuring user authentication and responsive design.",
+      tech: ["Python", "FastAPI", "Neon", "Render", "React"],
       github: "https://github.com/Sfayson1/Luma",
-      live: "https://www.lumajournal.com/",
+      live: "https://www.lumajournal.com/demo",
       featured: true
     }
   ];
@@ -27,7 +27,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
           {projects.map((project, index) => (
             <Card
               key={index}
@@ -83,7 +83,7 @@ const Projects = () => {
                     onClick={() => window.open(project.live, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Live Demo
+                    Demo
                   </Button>
                 </div>
               </CardContent>

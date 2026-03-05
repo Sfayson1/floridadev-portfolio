@@ -15,12 +15,12 @@ const Skills = () => {
     },
     {
       title: "Tools & Platforms",
-      skills: ["Git", "GitHub", "Linux", "Windows", "Mac OS", "Microsoft Office", "Slack", "Trello"],
+      skills: ["Git", "GitHub", "Linux", "Windows", "Mac OS", "Microsoft Office", "Slack", "Trello", "Jira"],
       color: "bg-gradient-hero"
     },
     {
       title: "Specializations",
-      skills: ["Full-Stack Development", "Agile Methodologies", "Technical Troubleshooting", "UI/UX", "ASO"],
+      skills: ["Full-Stack Development", "Agile Methodologies", "Technical Troubleshooting", "UI/UX", "REST APIs"],
       color: "bg-primary"
     }
   ];
