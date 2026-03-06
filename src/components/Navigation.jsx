@@ -43,12 +43,12 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <div className="font-bold text-xl text-foreground">
+          <a href="/" className="font-bold text-xl text-foreground hover:opacity-80 transition-opacity">
             <span className="bg-gradient-sunset bg-clip-text text-transparent">
               Florida
             </span>
             <span className="text-primary">Dev</span>
-          </div>
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
