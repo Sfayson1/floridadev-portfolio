@@ -8,6 +8,15 @@ const Projects = () => {
   const navigate = useNavigate();
   const projects = [
     {
+      title: "ResourceHub",
+      description: "An Android app that helps users locate nearby housing, food banks, job centers, and utilities by ZIP code — with built-in budget tracking to monitor income and expenses.",
+      tech: ["Kotlin", "Java", "Android Studio", "XML"],
+      github: "https://github.com/Sfayson1/ResourceHub",
+      live: "https://raw.githubusercontent.com/Sfayson1/ResourceHub/master/assets/resourcehub.gif",
+      impact: "Designed and built an Android app end-to-end that connects people in need with local community resources.",
+      featured: false
+    },
+    {
       title: "Luma",
       description: "Sole developer on Luma from concept to production — a full-stack journaling app with mood tracking, analytics, daily prompts, and JWT auth. React + TypeScript frontend on Vercel, FastAPI backend on Render.",
       tech: ["React", "TypeScript", "Python", "FastAPI", "Neon", "Vercel", "Render"],
@@ -31,7 +40,7 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {projects.map((project, index) => (
             <Card
               key={index}
