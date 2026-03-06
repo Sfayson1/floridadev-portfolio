@@ -235,6 +235,23 @@ const LumaArtifact = () => {
           </p>
         </section>
 
+        {/* Input Validation */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Input Validation</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            All API request and response shapes are defined using Pydantic schemas in{" "}
+            <code className="text-xs bg-muted px-1 py-0.5 rounded">schemas.py</code>.
+            Pydantic enforces field types at runtime — invalid payloads are rejected before
+            they reach business logic or the database. Email fields use{" "}
+            <code className="text-xs bg-muted px-1 py-0.5 rounded">EmailStr</code> for
+            format validation, optional fields are explicitly typed, and input schemas
+            (e.g. <code className="text-xs bg-muted px-1 py-0.5 rounded">PostIn</code>) are
+            kept separate from output schemas (e.g.{" "}
+            <code className="text-xs bg-muted px-1 py-0.5 rounded">PostOut</code>) to
+            control exactly what data is exposed to the client.
+          </p>
+        </section>
+
         {/* How It Was Built */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">How It Was Built</h2>
