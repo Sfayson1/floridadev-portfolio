@@ -100,7 +100,7 @@ useEffect(() => {
               size="lg"
               variant="hero"
               className="px-8 py-3 text-lg"
-              onClick={() => navigate("/artifacts/luma")}
+              onClick={() => navigate("/artifacts")}
             >
               View Artifacts
             </Button>
