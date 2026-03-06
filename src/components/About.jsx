@@ -10,7 +10,7 @@ const About = () => {
             About Me
           </h2>
           <p className="text-xl text-muted-foreground leading-relaxed">
-A graduate of ECPI University with an A.S. in Computer Information Science and a concentration in Software Development. As a U.S. Marine Corps Aviation Avionics Technician, I bring a unique blend of military precision, technical troubleshooting expertise, and teamwork skills to software development. 
+            I got into software engineering during the pandemic out of boredom and curiosity — and never looked back. As a U.S. Marine Corps Aviation Avionics Technician, I was trained to follow systems, troubleshoot methodically, and not stop until the problem is solved. Turns out that's exactly what software development requires. I build full-stack web apps focused on real human problems — the kind of tools that make someone's life meaningfully easier. I'm research-oriented to a fault, stubborn when debugging, and genuinely excited by the moment something finally works.
           </p>
         </div>
 
@@ -20,9 +20,9 @@ A graduate of ECPI University with an A.S. in Computer Information Science and a
               <div className="w-16 h-16 bg-gradient-ocean rounded-full flex items-center justify-center mx-auto mb-4">
                 <Code2 className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Full-Stack Development</h3>
+              <h3 className="text-xl font-semibold mb-3">Builds for People</h3>
               <p className="text-muted-foreground">
-                A.S. in Computer Information Science with hands-on experience in React, Python, SQL, and cloud solutions
+                Full-stack apps with React, Python, and FastAPI — focused on real human problems, not just technical exercises
               </p>
             </CardContent>
           </Card>
@@ -32,9 +32,9 @@ A graduate of ECPI University with an A.S. in Computer Information Science and a
               <div className="w-16 h-16 bg-gradient-sunset rounded-full flex items-center justify-center mx-auto mb-4">
                 <Palmtree className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Military Background</h3>
+              <h3 className="text-xl font-semibold mb-3">Systems Thinker</h3>
               <p className="text-muted-foreground">
-                U.S. Marine Corps Aviation Avionics Technician with expertise in technical troubleshooting and problem-solving
+                From avionics to APIs — trained as a U.S. Marine to understand systems, isolate variables, and fix root causes, not symptoms
               </p>
             </CardContent>
           </Card>
@@ -44,9 +44,9 @@ A graduate of ECPI University with an A.S. in Computer Information Science and a
               <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
                 <Sun className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Professional Experience</h3>
+              <h3 className="text-xl font-semibold mb-3">Stubborn by Nature</h3>
               <p className="text-muted-foreground">
-                Software Engineer and Full Stack Developer with real-world experience in Agile environments
+                Curious and research-oriented to a fault — I don't stop at "it kind of works." I dig until I understand why it works
               </p>
             </CardContent>
           </Card>
@@ -55,12 +55,12 @@ A graduate of ECPI University with an A.S. in Computer Information Science and a
         <div className="bg-gradient-ocean rounded-2xl p-8 md:p-12 text-white shadow-sunset">
           <div className="max-w-3xl mx-auto text-center">
             <h3 className="text-2xl md:text-3xl font-bold mb-6">
-              Ready to bring your ideas to life
+              Looking for a team where I can contribute from day one
             </h3>
             <p className="text-lg md:text-xl opacity-90 leading-relaxed">
-              I combine technical expertise with creative problem-solving to build
-              applications that are not only functional but also delightful to use.
-              Let's create something amazing together!
+              I'm looking for a Junior Software Engineer role where I can keep growing,
+              ship real features, and build things that actually matter to the people using them.
+              If that sounds like a fit, let's talk.
             </p>
           </div>
         </div>
