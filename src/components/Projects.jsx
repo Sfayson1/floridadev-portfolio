@@ -13,6 +13,7 @@ const Projects = () => {
       tech: ["Kotlin", "Java", "Android Studio", "XML"],
       github: "https://github.com/Sfayson1/ResourceHub",
       live: "https://raw.githubusercontent.com/Sfayson1/ResourceHub/master/assets/resourcehub.gif",
+      artifact: "/artifacts/resourcehub",
       impact: "Designed and built an Android app end-to-end that connects people in need with local community resources.",
       featured: false
     },
