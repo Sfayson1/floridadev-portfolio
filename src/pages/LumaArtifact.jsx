@@ -153,6 +153,7 @@ const LumaArtifact = () => {
               "All data is private — no social features of any kind",
               "Frontend deployed on Vercel, backend on Render, with auto-deploy on push to main",
               "Interactive API documentation available via FastAPI's built-in /docs",
+              "95% test coverage — unit, integration, and end-to-end tests with CI running on every PR and push to main",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="text-primary mt-1">✓</span>
@@ -169,7 +170,9 @@ const LumaArtifact = () => {
             Luma is a decoupled full-stack app. The React + TypeScript frontend communicates with a
             FastAPI backend over REST using JWT bearer tokens for authentication. SQLAlchemy manages
             the database layer against a Neon PostgreSQL instance. The frontend auto-deploys to
-            Vercel on push to main; the backend auto-deploys to Render on commit.
+            Vercel on push to main; the backend auto-deploys to Render on commit. There is no
+            separate staging environment — main is production. A staging environment with
+            environment promotion is the identified next infrastructure step.
           </p>
           <ArchDiagram />
           <p className="text-xs text-muted-foreground mt-3">
@@ -212,8 +215,9 @@ const LumaArtifact = () => {
             response time. Errors surface through FastAPI's default exception handlers. In production,
             the key signals to watch are HTTP 401/403 rates (auth failures), 500 error frequency, and{" "}
             <code className="text-xs bg-muted px-1 py-0.5 rounded">/api/posts/</code> response
-            latency as the primary data-path endpoint. Render exposes these logs in the dashboard.
-            Adding structured logging with <code className="text-xs bg-muted px-1 py-0.5 rounded">structlog</code> and
+            latency as the primary data-path endpoint. Target: p95 response time under 500ms.
+            Render exposes these logs in the dashboard. Adding structured logging with{" "}
+            <code className="text-xs bg-muted px-1 py-0.5 rounded">structlog</code> and
             a log drain to Datadog or Logtail is the identified next step for alerting.
           </p>
         </section>
