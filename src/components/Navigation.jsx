@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,6 +16,22 @@ const Navigation = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavClick = (e, href) => {
+    if (href.startsWith("/#")) {
+      e.preventDefault();
+      const sectionId = href.substring(2);
+      if (location.pathname === "/") {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        navigate("/");
+        setTimeout(() => {
+          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+      setIsMobileMenuOpen(false);
+    }
+  };
 
   const navItems = [
     { label: "About", href: "/#about" },
@@ -56,6 +75,7 @@ const Navigation = () => {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-foreground hover:text-primary transition-colors font-medium"
               >
                 {item.label}
@@ -85,8 +105,8 @@ const Navigation = () => {
                 <a
                   key={item.label}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="block text-foreground hover:text-primary transition-colors font-medium py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
                 </a>
