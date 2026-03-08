@@ -33,7 +33,7 @@ const Projects = () => {
       tech: ["Next.js", "TypeScript", "Tailwind CSS", "Clerk", "PostgreSQL", "Prisma", "Neon", "Vercel"],
       github: "https://github.com/Sfayson1/crucible",
       live: "https://crucible.sherikafayson.com/demo",
-      artifact: null,
+      artifact: "/artifacts/crucible",
       impact: "Built a full-stack developer matchmaking platform solo — from auth and database design to deployment.",
       featured: false
     }

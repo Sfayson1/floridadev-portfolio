@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Artifacts from "./pages/Artifacts";
 import LumaArtifact from "./pages/LumaArtifact";
 import ResourceHubArtifact from "./pages/ResourceHubArtifact";
+import CrucibleArtifact from "./pages/CrucibleArtifact";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/artifacts" element={<Artifacts />} />
           <Route path="/artifacts/luma" element={<LumaArtifact />} />
           <Route path="/artifacts/resourcehub" element={<ResourceHubArtifact />} />
+          <Route path="/artifacts/crucible" element={<CrucibleArtifact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
