@@ -21,6 +21,13 @@ const artifacts = [
     href: "/artifacts/resourcehub",
     featured: false,
   },
+  {
+    title: "Crucible",
+    summary: "A full-stack developer matchmaking platform — post a project, define your open roles, and connect with contributors who want to build with you.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Clerk", "Prisma", "PostgreSQL", "Neon", "Vercel"],
+    href: "/artifacts/crucible",
+    featured: false,
+  },
 ];
 
 const Artifacts = () => {
