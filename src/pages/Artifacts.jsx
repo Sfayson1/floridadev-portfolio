@@ -5,30 +5,11 @@ import { BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { projects } from "@/data/projects";
 
-const artifacts = [
-  {
-    title: "Luma",
-    summary: "Private journaling with mood tracking and analytics — designed, built, and deployed solo from first commit to production.",
-    tech: ["React", "TypeScript", "Python", "FastAPI", "Neon", "Vercel", "Render"],
-    href: "/artifacts/luma",
-    featured: true,
-  },
-  {
-    title: "ResourceHub",
-    summary: "An Android app that connects people facing housing insecurity with local community resources — built solo in 5 weeks on a new platform.",
-    tech: ["Kotlin", "Java", "Android Studio", "XML"],
-    href: "/artifacts/resourcehub",
-    featured: false,
-  },
-  {
-    title: "Crucible",
-    summary: "A full-stack developer matchmaking platform — post a project, define your open roles, and connect with contributors who want to build with you.",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Clerk", "Prisma", "PostgreSQL", "Neon", "Vercel"],
-    href: "/artifacts/crucible",
-    featured: false,
-  },
-];
+const artifacts = projects
+  .filter((p) => p.artifact)
+  .map((p) => ({ title: p.title, summary: p.summary, tech: p.tech, href: p.artifact, featured: p.featured }));
 
 const Artifacts = () => {
   const navigate = useNavigate();

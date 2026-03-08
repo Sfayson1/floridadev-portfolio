@@ -1,19 +1,27 @@
-const updates = [
-  {
-    date: "Mar 2026",
-    text: "Published artifact deep dive for ResourceHub — Android community resource app.",
-  },
-  {
-    date: "Mar 2026",
-    text: "Published artifact deep dive for Luma — full-stack journaling app with mood tracking and analytics.",
-  },
-  {
-    date: "Mar 2026",
-    text: "Added Luma to production with CI/CD pipeline, test coverage, and Codecov reporting.",
-  },
-];
+import { useNavigate } from "react-router-dom";
+import { projects } from "@/data/projects";
+import { manualUpdates } from "@/data/updates";
+
+const formatDate = (iso) => {
+  const d = new Date(iso);
+  return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+};
+
+const artifactUpdates = projects
+  .filter((p) => p.artifact && p.artifactDate)
+  .map((p) => ({
+    date: p.artifactDate,
+    text: `Published artifact deep dive for ${p.title} — ${p.summary}`,
+    href: p.artifact,
+  }));
+
+const allUpdates = [...artifactUpdates, ...manualUpdates].sort(
+  (a, b) => new Date(b.date) - new Date(a.date)
+);
 
 const WhatsNew = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-20 bg-muted/30" id="whats-new">
       <div className="container mx-auto px-4">
@@ -26,14 +34,19 @@ const WhatsNew = () => {
           </p>
 
           <div className="relative border-l-2 border-primary/20 pl-8 space-y-8">
-            {updates.map((update, index) => (
-              <div key={index} className="relative">
-                {/* Dot */}
+            {allUpdates.map((update, index) => (
+              <div
+                key={index}
+                className={`relative ${update.href ? "cursor-pointer group" : ""}`}
+                onClick={() => update.href && navigate(update.href)}
+              >
                 <div className="absolute -left-[41px] w-4 h-4 rounded-full bg-gradient-sunset border-2 border-background" />
                 <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">
-                  {update.date}
+                  {formatDate(update.date)}
                 </p>
-                <p className="text-foreground leading-relaxed">{update.text}</p>
+                <p className={`leading-relaxed ${update.href ? "text-foreground group-hover:text-primary transition-colors" : "text-foreground"}`}>
+                  {update.text}
+                </p>
               </div>
             ))}
           </div>
