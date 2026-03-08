@@ -4,24 +4,19 @@ import { Badge } from "@/components/ui/badge";
 const Skills = () => {
   const skillCategories = [
     {
-      title: "Programming Languages",
-      skills: ["JavaScript", "React", "Python", "SQL", "HTML", "CSS", "Node.js"],
+      title: "Core Stack",
+      skills: ["React", "TypeScript", "Python", "FastAPI", "PostgreSQL", "SQL"],
       color: "bg-gradient-ocean"
     },
     {
-      title: "Databases & Cloud",
-      skills: ["MySQL", "PostgreSQL", "NoSQL", "AWS", "Docker", "Server-less"],
+      title: "Familiar With",
+      skills: ["Node.js", "Docker", "AWS", "Kotlin", "Java", "HTML", "CSS"],
       color: "bg-gradient-sunset"
     },
     {
-      title: "Tools & Platforms",
-      skills: ["Git", "GitHub", "Linux", "Windows", "Mac OS", "Microsoft Office", "Slack", "Trello", "Jira"],
+      title: "Tools & Workflow",
+      skills: ["Git", "GitHub", "Linux", "Jira", "Agile", "REST APIs"],
       color: "bg-gradient-hero"
-    },
-    {
-      title: "Specializations",
-      skills: ["Full-Stack Development", "Agile Methodologies", "Technical Troubleshooting", "UI/UX", "REST APIs"],
-      color: "bg-primary"
     }
   ];
 
@@ -37,7 +32,7 @@ const Skills = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {skillCategories.map((category, index) => (
             <Card key={index} className="overflow-hidden shadow-florida hover:shadow-sunset transition-all duration-300 hover:-translate-y-1">
               <div className={`h-2 ${category.color}`} />

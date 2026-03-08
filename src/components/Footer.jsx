@@ -39,9 +39,9 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Quote */}
-          <p className="text-lg text-background/80 mb-6 italic">
-            "Building the future, one line of code at a time, with Florida sunshine in every project."
+          {/* Tagline */}
+          <p className="text-base text-background/70 mb-6 tracking-wide">
+            Full-Stack Software Engineer &nbsp;|&nbsp; React • Python • FastAPI
           </p>
 
           {/* Copyright */}

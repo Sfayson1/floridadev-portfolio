@@ -28,6 +28,7 @@ export const projects = [
       "Private journaling with mood tracking and analytics — designed, built, and deployed solo from first commit to production.",
     featured: true,
     artifactDate: "2026-03-01",
+    badges: true,
   },
   {
     title: "Crucible",

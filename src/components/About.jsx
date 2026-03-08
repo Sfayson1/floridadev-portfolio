@@ -44,7 +44,7 @@ const About = () => {
               <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
                 <Sun className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Stubborn by Nature</h3>
+              <h3 className="text-xl font-semibold mb-3">Relentless Debugger</h3>
               <p className="text-muted-foreground">
                 Curious and research-oriented to a fault — I don't stop at "it kind of works." I dig until I understand why it works
               </p>

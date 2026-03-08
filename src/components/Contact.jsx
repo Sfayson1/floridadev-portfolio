@@ -121,8 +121,14 @@ const Contact = () => {
             <MapPin className="w-4 h-4 text-primary" />
             <span className="text-sm">Central Florida</span>
           </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
+          <a
+            href="mailto:sherika.fayson@proton.me"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+          >
             <Mail className="w-4 h-4 text-primary" />
+            <span className="text-sm">sherika.fayson@proton.me</span>
+          </a>
+          <div className="flex items-center gap-2 text-muted-foreground">
             <span className="text-sm">Replies within 24–48 hours</span>
           </div>
           <a

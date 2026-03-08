@@ -90,7 +90,7 @@ useEffect(() => {
             </div>
           </h1>
           <p className="text-xl md:text-2xl mb-4 text-white/90 leading-relaxed">
-            I build full-stack web apps — bringing military precision and a software engineering degree to every problem I solve.
+            I build full-stack web applications with React and Python — bringing Marine Corps precision and systems thinking to real-world software problems.
           </p>
           <p className="text-lg mb-8 text-white/75 font-medium tracking-wide uppercase">
             Open to Junior Software Engineer roles
