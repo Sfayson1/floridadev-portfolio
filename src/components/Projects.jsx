@@ -26,6 +26,16 @@ const Projects = () => {
       artifact: "/artifacts/luma",
       impact: "Private journaling with mood tracking and analytics — designed, built, and deployed solo from first commit to production.",
       featured: true
+    },
+    {
+      title: "Crucible",
+      description: "A project collaboration platform for developers who want to build side projects together. Post a project, describe the roles you need, and connect with contributors — with application management and a personal dashboard.",
+      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Clerk", "PostgreSQL", "Prisma", "Neon", "Vercel"],
+      github: "https://github.com/Sfayson1/crucible",
+      live: "https://crucible.sherikafayson.com/demo",
+      artifact: null,
+      impact: "Built a full-stack developer matchmaking platform solo — from auth and database design to deployment.",
+      featured: false
     }
   ];
 
