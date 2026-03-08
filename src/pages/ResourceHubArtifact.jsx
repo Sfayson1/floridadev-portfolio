@@ -73,9 +73,24 @@ const ResourceHubArtifact = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-12">
+        <div className="flex flex-wrap gap-2 mb-8">
           {["Kotlin", "Java", "Android Studio", "XML"].map((t) => (
             <Badge key={t} variant="secondary">{t}</Badge>
+          ))}
+        </div>
+
+        {/* Project Stats */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
+          {[
+            { label: "Timeline", value: "5 wks" },
+            { label: "Platform", value: "Android" },
+            { label: "Developer", value: "Solo" },
+            { label: "Stack", value: "New" },
+          ].map(({ label, value }) => (
+            <div key={label} className="bg-muted/40 border border-border rounded-xl p-4 text-center">
+              <p className="text-2xl font-bold text-primary">{value}</p>
+              <p className="text-xs text-muted-foreground mt-1">{label}</p>
+            </div>
           ))}
         </div>
 
@@ -121,8 +136,10 @@ const ResourceHubArtifact = () => {
             ResourceHub is a native Android app built in Kotlin and Java. The UI is composed of
             Activities and XML layouts, with RecyclerView adapters handling the resource list.
             User preferences and saved favorites are persisted with SharedPreferences. Resource
-            data is currently mocked locally — real API integration (Google Places, 211 API) is
-            the primary planned next step.
+            data is currently mocked locally to allow rapid UI and feature development within a
+            five-week timeline. The next step is integrating a real data provider — the 211 API
+            provides verified community resource data across the US, and Google Places would enable
+            map-based discovery — to power live resource search in a production version.
           </p>
           <ArchDiagram />
         </section>
@@ -163,6 +180,25 @@ const ResourceHubArtifact = () => {
             the data models — the same lesson from building Luma. A clearer schema before writing
             code would have made the search and filter logic cleaner from the start.
           </p>
+        </section>
+
+        {/* Lessons Learned */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Lessons Learned</h2>
+          <ul className="space-y-2 text-muted-foreground">
+            {[
+              "Learning a new platform (Android) and a new language (Kotlin) simultaneously is possible — but it requires accepting that your first pass won't be clean.",
+              "Mock data is a valid first step, not a shortcut — it lets you build and validate the full UI before committing to a data provider.",
+              "Android's Activity lifecycle is unforgiving if you don't plan state management upfront — RecyclerView filters exposed this early.",
+              "Tight timelines force good prioritization — shipping a working demo in five weeks meant making deliberate tradeoffs, not cutting corners arbitrarily.",
+              "Platform adaptability is a real skill — leaving your primary stack to build something native proved that the fundamentals transfer.",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="text-primary mt-1">→</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* Constraints */}

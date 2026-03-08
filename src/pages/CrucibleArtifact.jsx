@@ -6,41 +6,59 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
+const systemLayers = [
+  {
+    label: "Client",
+    title: "Next.js 16 + React (App Router)",
+    detail: "TypeScript · Tailwind · shadcn/ui",
+    color: "bg-gradient-ocean",
+    arrow: "↓ Server Actions / API Routes",
+  },
+  {
+    label: "Server Layer",
+    title: "Server Actions + API Routes",
+    detail: "Authentication via Clerk",
+    color: "bg-gradient-sunset",
+    arrow: "↓",
+  },
+  {
+    label: "Data Layer",
+    title: "Prisma ORM",
+    detail: "Type-safe queries · Schema migrations",
+    color: "bg-gradient-hero",
+    arrow: "↓",
+  },
+  {
+    label: "Database",
+    title: "Neon PostgreSQL",
+    detail: "Projects · Roles · Applications · Users",
+    color: "bg-primary",
+    arrow: "↓",
+  },
+  {
+    label: "Deployment",
+    title: "Vercel",
+    detail: "Full-stack auto deploy on push",
+    color: "bg-foreground",
+    arrow: null,
+  },
+];
+
 const ArchDiagram = () => (
   <div className="bg-muted/40 rounded-xl p-6 border border-border">
-    <div className="flex flex-col items-center gap-4 text-sm font-medium">
-      <div className="w-full max-w-sm bg-gradient-ocean text-white rounded-lg px-4 py-3 text-center">
-        <p className="font-semibold">Next.js 16 Frontend (App Router)</p>
-        <p className="text-xs opacity-80 mt-1">TypeScript · Tailwind CSS · shadcn/ui · Clerk</p>
-      </div>
-
-      <div className="text-muted-foreground text-lg">↕ Server Actions / API Routes</div>
-
-      <div className="w-full max-w-sm bg-gradient-sunset text-white rounded-lg px-4 py-3 text-center">
-        <p className="font-semibold">Prisma ORM</p>
-        <p className="text-xs opacity-80 mt-1">
-          Projects · Roles · Applications · Users
-        </p>
-        <p className="text-xs opacity-70 mt-1">Type-safe queries · Schema migrations</p>
-      </div>
-
-      <div className="text-muted-foreground text-lg">↕ SQL</div>
-
-      <div className="w-full max-w-sm bg-primary text-white rounded-lg px-4 py-3 text-center">
-        <p className="font-semibold">Neon PostgreSQL</p>
-        <p className="text-xs opacity-80 mt-1">Projects · Roles · Applications</p>
-      </div>
-
-      <div className="mt-2 w-full max-w-sm flex gap-3">
-        <div className="flex-1 border border-border rounded-lg px-3 py-3 text-center">
-          <p className="font-semibold text-foreground text-sm">Vercel</p>
-          <p className="text-xs text-muted-foreground mt-1">Full-stack · Auto-deploy on push to master</p>
+    <div className="flex flex-col items-center gap-2 text-sm font-medium">
+      {systemLayers.map((layer) => (
+        <div key={layer.label} className="w-full max-w-sm flex flex-col items-center gap-2">
+          <div className={`w-full ${layer.color} text-white rounded-lg px-4 py-3 text-center`}>
+            <p className="text-xs font-semibold uppercase tracking-wider opacity-70 mb-0.5">{layer.label}</p>
+            <p className="font-semibold">{layer.title}</p>
+            <p className="text-xs opacity-80 mt-0.5">{layer.detail}</p>
+          </div>
+          {layer.arrow && (
+            <p className="text-muted-foreground text-base">{layer.arrow}</p>
+          )}
         </div>
-        <div className="flex-1 border border-border rounded-lg px-3 py-3 text-center">
-          <p className="font-semibold text-foreground text-sm">Clerk</p>
-          <p className="text-xs text-muted-foreground mt-1">Auth · Email sign-up · Session management</p>
-        </div>
-      </div>
+      ))}
     </div>
   </div>
 );
@@ -137,13 +155,31 @@ const CrucibleArtifact = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Crucible is a full-stack Next.js app using the App Router. There is no separate backend
-            service — data mutations go through Next.js Server Actions and API routes, and Prisma
-            handles all database queries against a Neon PostgreSQL instance. Clerk manages auth end-to-end:
-            sign-up, sign-in, session tokens, and middleware-based route protection. The entire app
-            deploys to Vercel as a single unit.
+            Crucible is a full-stack Next.js application using the App Router, deployed as a single
+            unit on Vercel. Instead of maintaining a separate backend service, server-side logic is
+            handled through Next.js Server Actions and API routes. Prisma provides type-safe database
+            access to a Neon PostgreSQL instance, while Clerk manages authentication and session
+            management. This keeps the system simple: frontend, server logic, and database access
+            live in one codebase while still maintaining clear separation of responsibilities.
           </p>
           <ArchDiagram />
+        </section>
+
+        {/* Why This Architecture */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Why This Architecture</h2>
+          <Card className="border-primary/20 bg-primary/5">
+            <CardContent className="p-6">
+              <p className="text-muted-foreground leading-relaxed">
+                Crucible is intentionally built as a single full-stack application instead of a
+                microservice architecture. Using Next.js Server Actions allows frontend and backend
+                logic to live in the same codebase while still maintaining secure server-side data
+                mutations. For a project of this scale, this approach reduces infrastructure
+                complexity and deployment overhead while still supporting clear data boundaries
+                through Prisma and PostgreSQL.
+              </p>
+            </CardContent>
+          </Card>
         </section>
 
         {/* Key Tradeoff */}

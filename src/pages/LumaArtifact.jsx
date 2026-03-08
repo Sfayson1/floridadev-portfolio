@@ -107,6 +107,21 @@ const LumaArtifact = () => {
           </div>
         </div>
 
+        {/* Project Stats */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
+          {[
+            { label: "Test Coverage", value: "95%" },
+            { label: "Deployments", value: "2" },
+            { label: "Developer", value: "Solo" },
+            { label: "Status", value: "Live" },
+          ].map(({ label, value }) => (
+            <div key={label} className="bg-muted/40 border border-border rounded-xl p-4 text-center">
+              <p className="text-2xl font-bold text-primary">{value}</p>
+              <p className="text-xs text-muted-foreground mt-1">{label}</p>
+            </div>
+          ))}
+        </div>
+
         {/* Tech Stack */}
         <div className="mb-12 space-y-3">
           <div>
@@ -239,32 +254,59 @@ const LumaArtifact = () => {
           </p>
         </section>
 
-        {/* Input Validation */}
+        {/* Security */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Input Validation</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">Security</h2>
+          <ul className="space-y-2 text-muted-foreground mb-4">
+            {[
+              "Passwords hashed with bcrypt — plaintext is never stored or logged",
+              "JWT tokens with expiration — short-lived access tokens, server-side validation on every protected route",
+              "All API routes require a valid Bearer token except /auth/register and /auth/login",
+              "Server-side input validation via Pydantic — invalid payloads are rejected before reaching business logic or the database",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="text-primary mt-1">→</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
           <p className="text-muted-foreground leading-relaxed">
-            All API request and response shapes are defined using Pydantic schemas in{" "}
-            <code className="text-xs bg-muted px-1 py-0.5 rounded">schemas.py</code>.
-            Pydantic enforces field types at runtime — invalid payloads are rejected before
-            they reach business logic or the database. Email fields use{" "}
-            <code className="text-xs bg-muted px-1 py-0.5 rounded">EmailStr</code> for
-            format validation, optional fields are explicitly typed, and input schemas
-            (e.g. <code className="text-xs bg-muted px-1 py-0.5 rounded">PostIn</code>) are
+            Input schemas (e.g. <code className="text-xs bg-muted px-1 py-0.5 rounded">PostIn</code>) are
             kept separate from output schemas (e.g.{" "}
             <code className="text-xs bg-muted px-1 py-0.5 rounded">PostOut</code>) to
-            control exactly what data is exposed to the client.
+            control exactly what data is exposed to the client.{" "}
+            <code className="text-xs bg-muted px-1 py-0.5 rounded">EmailStr</code> enforces email format at the boundary.
           </p>
+        </section>
+
+        {/* Lessons Learned */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Lessons Learned</h2>
+          <ul className="space-y-2 text-muted-foreground">
+            {[
+              "Design the data model before writing features — loose schema definitions caused cascading bugs that were hard to trace.",
+              "FastAPI's interactive docs at /docs dramatically speed up debugging — test the API layer directly before wiring up the frontend.",
+              "CI/CD from the start is worth it — catching lint and test failures before merge saved hours of production debugging.",
+              "Separation of input and output schemas (PostIn / PostOut) is not overhead — it's the right default for any API that exposes user data.",
+              "When you build auth from scratch once, you understand exactly when to use a managed solution instead.",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-2">
+                <span className="text-primary mt-1">→</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* How It Was Built */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">How It Was Built</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Luma was a solo project built while actively learning parts of the stack. FastAPI,
-            SQLAlchemy, Neon, and Render were all technologies worked with hands-on for the first
-            time during this build. The approach was incremental: build one feature end-to-end,
-            validate it with FastAPI's built-in docs, then move forward. Every bug became a learning
-            checkpoint rather than a blocker.
+            Luma was a solo project built while actively learning parts of the stack. This project
+            intentionally pushed into new technologies — FastAPI, SQLAlchemy, Neon, and Render were
+            all used hands-on for the first time during this build. Each feature was built
+            end-to-end and validated through FastAPI's interactive documentation before moving
+            forward. Every bug became a learning checkpoint rather than a blocker.
           </p>
         </section>
       </main>
