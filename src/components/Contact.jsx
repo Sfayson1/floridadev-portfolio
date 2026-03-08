@@ -105,190 +105,142 @@ const Contact = () => {
       id="contact"
     >
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+        {/* Header */}
+        <div className="max-w-2xl mx-auto text-center mb-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Let's Connect
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            Ready to start your next project? Let's bring your ideas to life
-            together!
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Open to new opportunities, collaborations, or just a good conversation about tech.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Info */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-foreground">
-                Get in Touch
-              </h3>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
-                I'm always open to discussing new opportunities, interesting
-                projects, or just having a conversation about technology and
-                development.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-ocean rounded-full flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="font-medium text-foreground">Response Time</p>
-                  <p className="text-muted-foreground">
-                    Usually within 24-48 hours
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-gradient-sunset rounded-full flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <p className="font-medium text-foreground">Location</p>
-                  <p className="text-muted-foreground">Central Florida</p>
-                </div>
-              </div>
-            </div>
-            <input
-              type="text"
-              name="botField"
-              className="hidden"
-              autoComplete="off"
-            />
-            <div className="flex space-x-4 pt-4">
-              <Button variant="outline" size="lg" className="flex-1" asChild>
-                <a
-                  href="https://www.linkedin.com/in/sherika-fayson/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center"
-                >
-                  <Linkedin className="w-5 h-5 mr-2" />
-                  LinkedIn
-                </a>
-              </Button>
-              <Button variant="outline" size="lg" className="flex-1" asChild>
-                <a
-                  href="https://github.com/Sfayson1/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center"
-                >
-                  <Github className="w-5 h-5 mr-2" />
-                  GitHub
-                </a>
-              </Button>
-            </div>
+        {/* Info strip */}
+        <div className="flex flex-wrap justify-center gap-6 mb-12">
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <MapPin className="w-4 h-4 text-primary" />
+            <span className="text-sm">Central Florida</span>
           </div>
-
-          {/* Contact Form */}
-          <Card className="shadow-florida hover:shadow-sunset transition-all duration-300">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-semibold mb-6 text-foreground">
-                Send a Message
-              </h3>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name *</Label>
-                    <Input
-                      id="firstName"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleInputChange}
-                      placeholder="John"
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name *</Label>
-                    <Input
-                      id="lastName"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleInputChange}
-                      placeholder="Doe"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="john@example.com"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="subject">Subject *</Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    placeholder="Project Collaboration"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Tell me about your project or just say hello!"
-                    className="min-h-[120px]"
-                    required
-                  />
-                </div>
-
-                <Button
-                  variant="hero"
-                  size="lg"
-                  className="w-full"
-                  type="submit"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-
-                {/* Success/Error Messages */}
-                {submitStatus === "success" && (
-                  <div className="flex items-center gap-2 p-4 bg-green-50 text-green-800 rounded-lg border border-green-200">
-                    <CheckCircle className="w-5 h-5" />
-                    <p>
-                      Message sent successfully! I'll get back to you within
-                      24-48 hours.
-                    </p>
-                  </div>
-                )}
-
-                {submitStatus === "error" && (
-                  <div className="flex items-center gap-2 p-4 bg-red-50 text-red-800 rounded-lg border border-red-200">
-                    <AlertCircle className="w-5 h-5" />
-                    <p>
-                      Failed to send message. Please try again or contact me via
-                      LinkedIn.
-                    </p>
-                  </div>
-                )}
-              </form>
-            </CardContent>
-          </Card>
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <Mail className="w-4 h-4 text-primary" />
+            <span className="text-sm">Replies within 24–48 hours</span>
+          </div>
+          <a
+            href="https://www.linkedin.com/in/sherika-fayson/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Linkedin className="w-4 h-4" />
+            <span className="text-sm">LinkedIn</span>
+          </a>
+          <a
+            href="https://github.com/Sfayson1/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Github className="w-4 h-4" />
+            <span className="text-sm">GitHub</span>
+          </a>
         </div>
+
+        {/* Centered form */}
+        <Card className="max-w-xl mx-auto shadow-florida hover:shadow-sunset transition-all duration-300">
+          <CardContent className="p-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Honeypot */}
+              <input type="text" name="botField" className="hidden" autoComplete="off" />
+
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="firstName">First Name *</Label>
+                  <Input
+                    id="firstName"
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    placeholder="Jane"
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="lastName">Last Name *</Label>
+                  <Input
+                    id="lastName"
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    placeholder="Doe"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="email">Email *</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="jane@example.com"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="subject">Subject *</Label>
+                <Input
+                  id="subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  placeholder="Project Collaboration"
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="message">Message *</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder="Tell me about your project or just say hello!"
+                  className="min-h-[120px]"
+                  required
+                />
+              </div>
+
+              <Button
+                variant="hero"
+                size="lg"
+                className="w-full"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Sending..." : "Send Message"}
+              </Button>
+
+              {submitStatus === "success" && (
+                <div className="flex items-center gap-2 p-4 bg-green-50 text-green-800 rounded-lg border border-green-200">
+                  <CheckCircle className="w-5 h-5 shrink-0" />
+                  <p>Message sent! I'll get back to you within 24–48 hours.</p>
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <div className="flex items-center gap-2 p-4 bg-red-50 text-red-800 rounded-lg border border-red-200">
+                  <AlertCircle className="w-5 h-5 shrink-0" />
+                  <p>Failed to send. Please try again or reach out via LinkedIn.</p>
+                </div>
+              )}
+            </form>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
