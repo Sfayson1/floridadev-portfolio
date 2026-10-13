@@ -6,6 +6,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const textColor = isScrolled ? "text-foreground" : "text-white";
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -22,11 +23,15 @@ const Navigation = () => {
       e.preventDefault();
       const sectionId = href.substring(2);
       if (location.pathname === "/") {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        document
+          .getElementById(sectionId)
+          ?.scrollIntoView({ behavior: "smooth" });
       } else {
         navigate("/");
         setTimeout(() => {
-          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+          document
+            .getElementById(sectionId)
+            ?.scrollIntoView({ behavior: "smooth" });
         }, 100);
       }
       setIsMobileMenuOpen(false);
@@ -36,89 +41,140 @@ const Navigation = () => {
   const navItems = [
     { label: "About", href: "/#about" },
     { label: "Projects", href: "/#projects" },
-    { label: "Artifacts", href: "/artifacts" },
     { label: "Skills", href: "/#skills" },
     { label: "Contact", href: "/#contact" },
   ];
 
   return (
     <div className="fixed top-0 w-full z-50">
-      {/* Recruiter Banner */}
-      <div className="bg-gradient-sunset text-white text-center text-sm py-2 px-4 font-medium">
-        Hiring a Junior Software Engineer?{" "}
-        <a
-          href="#projects"
-          className="underline underline-offset-2 hover:opacity-80 transition-opacity"
-        >
-          See my work →
-        </a>
-      </div>
+      <nav
+        className={`w-full transition-all duration-300 ${
+          isScrolled
+            ? "bg-background/95 backdrop-blur-sm shadow-florida border-b border-border"
+            : "bg-transparent"
+        }`}
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo */}
+            <a
+              href="/"
+              className={`font-bold text-xl ${textColor} hover:opacity-80 transition-opacity`}
+            >
+              Sherika Fayson
+            </a>
 
-    <nav className={`w-full transition-all duration-300 ${
-      isScrolled
-        ? "bg-background/95 backdrop-blur-sm shadow-florida border-b border-border"
-        : "bg-transparent"
-    }`}>
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="/" className="font-bold text-xl text-foreground hover:opacity-80 transition-opacity">
-            <span className="bg-gradient-sunset bg-clip-text text-transparent">
-              Florida
-            </span>
-            <span className="text-primary">Dev</span>
-          </a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="text-foreground hover:text-primary transition-colors font-medium"
-              >
-                {item.label}
-              </a>
-            ))}
-            <Button variant="hero" size="sm" className="ml-4" onClick={() => window.open("https://www.linkedin.com/in/sherika-fayson/", '_blank')}>
-              LinkedIn
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-background/95 backdrop-blur-sm border-t border-border">
-            <div className="px-4 py-6 space-y-4">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-8">
               {navItems.map((item) => (
                 <a
                   key={item.label}
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="block text-foreground hover:text-primary transition-colors font-medium py-2"
+                  className={`${textColor} hover:text-primary transition-colors font-medium`}
                 >
                   {item.label}
                 </a>
               ))}
-              <Button variant="hero" size="sm" className="mt-4 w-full" onClick={() => window.open("https://www.linkedin.com/in/sherika-fayson/", '_blank')}>
+              <Button
+                variant="hero"
+                size="sm"
+                className="ml-4"
+                onClick={() =>
+                  window.open(
+                    "https://www.linkedin.com/in/sherika-fayson/",
+                    "_blank",
+                  )
+                }
+              >
                 LinkedIn
               </Button>
+
+              <Button
+                variant="hero"
+                size="sm"
+                className="ml-4"
+                onClick={() =>
+                  window.open("https://github.com/Sfayson1", "_blank")
+                }
+              >
+                GitHub
+              </Button>
+              <Button
+                variant="hero"
+                size="sm"
+                className="ml-4"
+                onClick={() =>
+                  window.open("/Sherika-Fayson-Resume.pdf", "_blank")
+                }
+              >
+                Resume
+              </Button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <Button
+              variant="ghost"
+              size="icon"
+              className={`md:hidden ${textColor}`}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </Button>
           </div>
-        )}
-      </div>
-    </nav>
+
+          {/* Mobile Navigation */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden bg-background/95 backdrop-blur-sm border-t border-border">
+              <div className="px-4 py-6 space-y-4">
+                {navItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={(e) => handleNavClick(e, item.href)}
+                    className="block text-foreground hover:text-primary transition-colors font-medium py-2"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+                <Button
+                  variant="hero"
+                  size="sm"
+                  className="mt-4 w-full"
+                  onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/in/sherika-fayson/",
+                      "_blank",
+                    )
+                  }
+                >
+                  LinkedIn
+                </Button>
+                <Button
+                  variant="hero"
+                  size="sm"
+                  className="mt-4 w-full"
+                  onClick={() =>
+                    window.open("https://github.com/Sfayson1", "_blank")
+                  }
+                >
+                  GitHub
+                </Button>
+                <Button
+                  variant="hero"
+                  size="sm"
+                  className="mt-4 w-full"
+                  onClick={() =>
+                    window.open("/Sherika-Fayson-Resume.pdf", "_blank")
+                  }
+                >
+                  Resume
+                </Button>
+              </div>
+            </div>
+          )}
+        </div>
+      </nav>
     </div>
   );
 };

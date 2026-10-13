@@ -68,12 +68,13 @@ const LumaArtifact = () => {
 
         {/* Header */}
         <div className="mb-10">
-          <div className="flex flex-wrap items-center gap-3 mb-3">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Luma</h1>
-            <Badge className="bg-gradient-sunset text-white border-0">Featured</Badge>
-          </div>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary mb-2">
+            Built with AI assistance
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">Luma</h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-6">
-            A private journaling app for mindful self-reflection — mood tracking, analytics, daily prompts, and no social noise.
+            A private journaling app for self-reflection, with mood tracking, analytics, and daily
+            prompts. No social features.
           </p>
           {/* CI badges */}
           <div className="flex flex-wrap gap-2 mb-4">
@@ -112,7 +113,7 @@ const LumaArtifact = () => {
           {[
             { label: "Test Coverage", value: "95%" },
             { label: "Deployments", value: "2" },
-            { label: "Developer", value: "Solo" },
+            { label: "Build", value: "AI-assisted" },
             { label: "Status", value: "Live" },
           ].map(({ label, value }) => (
             <div key={label} className="bg-muted/40 border border-border rounded-xl p-4 text-center">
@@ -148,11 +149,10 @@ const LumaArtifact = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">The Problem</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Most people who want to journal don't have a dedicated, distraction-free place to do it.
-            Existing options are either buried inside social platforms full of comparison and noise,
-            or generic note-taking apps with no structure for self-reflection. Luma is built for one
-            thing: a private, calm space to write, track your mood over time, and gain insight into
-            your emotional patterns — with no audience, no followers, and no likes.
+            Most people who want to journal don't have a quiet place to do it. The options are
+            either social platforms full of comparison and noise, or generic note apps with no
+            structure for reflection. Luma does one thing: gives you a private space to write, track
+            your mood over time, and see your patterns. No audience, no followers, no likes.
           </p>
         </section>
 
@@ -161,14 +161,14 @@ const LumaArtifact = () => {
           <h2 className="text-2xl font-bold text-foreground mb-4">What "Done" Looked Like</h2>
           <ul className="space-y-2 text-muted-foreground">
             {[
-              "Users can create an account and authenticate securely via JWT",
+              "Users can create an account and sign in securely with JWT",
               "Users can create, edit, delete, and search journal entries with mood and hashtag support",
-              "A new daily reflection prompt rotates automatically — no manual setup",
+              "A new daily reflection prompt rotates automatically",
               "Analytics dashboard shows mood trends, streak history, and writing patterns",
-              "All data is private — no social features of any kind",
-              "Frontend deployed on Vercel, backend on Render, with auto-deploy on push to main",
-              "Interactive API documentation available via FastAPI's built-in /docs",
-              "95% test coverage — unit, integration, and end-to-end tests with CI running on every PR and push to main",
+              "All data is private, with no social features",
+              "Frontend deployed on Vercel and backend on Render, both auto-deploying from main",
+              "Interactive API documentation available at FastAPI's built-in /docs",
+              "95% test coverage across unit, integration, and end-to-end tests, with CI on every PR and push to main",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="text-primary mt-1">✓</span>
@@ -182,12 +182,11 @@ const LumaArtifact = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Luma is a decoupled full-stack app. The React + TypeScript frontend communicates with a
-            FastAPI backend over REST using JWT bearer tokens for authentication. SQLAlchemy manages
-            the database layer against a Neon PostgreSQL instance. The frontend auto-deploys to
-            Vercel on push to main; the backend auto-deploys to Render on commit. There is no
-            separate staging environment — main is production. A staging environment with
-            environment promotion is the identified next infrastructure step.
+            Luma is a decoupled full-stack app. The React + TypeScript frontend talks to a FastAPI
+            backend over REST, using JWT bearer tokens for auth. SQLAlchemy handles the database
+            layer against Neon PostgreSQL. The frontend auto-deploys to Vercel on push to main, and
+            the backend auto-deploys to Render on commit. There's no staging environment yet, so main
+            is production. Adding staging is the next infrastructure step.
           </p>
           <ArchDiagram />
           <p className="text-xs text-muted-foreground mt-3">
@@ -210,13 +209,12 @@ const LumaArtifact = () => {
             <CardContent className="p-6">
               <h3 className="font-semibold text-foreground mb-2">FastAPI over Express/Node.js</h3>
               <p className="text-muted-foreground leading-relaxed">
-                I chose FastAPI for the backend instead of the more familiar Express/Node.js stack.
-                The deciding factor was FastAPI's automatic interactive documentation — it generates
-                a live, testable API explorer at <code className="text-xs bg-muted px-1 py-0.5 rounded">/docs</code> out
-                of the box. While building and debugging data models, being able to visualize the
-                schema and test endpoints directly in the browser — without a separate tool like
-                Postman — made the development loop significantly faster. It was also an intentional
-                choice to deepen my Python skills alongside the project.
+                I chose FastAPI over the more familiar Express/Node.js stack. The deciding factor was
+                its automatic interactive docs at{" "}
+                <code className="text-xs bg-muted px-1 py-0.5 rounded">/docs</code>, which let you
+                see the schema and test endpoints in the browser without a separate tool like Postman.
+                That made debugging data models much faster. It was also a deliberate way to build
+                my Python skills.
               </p>
             </CardContent>
           </Card>
@@ -226,31 +224,28 @@ const LumaArtifact = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">Observability</h2>
           <p className="text-muted-foreground leading-relaxed">
-            The backend logs all requests via Uvicorn's access log — method, path, status code, and
-            response time. Errors surface through FastAPI's default exception handlers. In production,
-            the key signals to watch are HTTP 401/403 rates (auth failures), 500 error frequency, and{" "}
-            <code className="text-xs bg-muted px-1 py-0.5 rounded">/api/posts/</code> response
-            latency as the primary data-path endpoint. Target: p95 response time under 500ms.
-            Render exposes these logs in the dashboard. Adding structured logging with{" "}
-            <code className="text-xs bg-muted px-1 py-0.5 rounded">structlog</code> and
-            a log drain to Datadog or Logtail is the identified next step for alerting.
+            The backend logs every request through Uvicorn's access log: method, path, status code,
+            and response time. Errors surface through FastAPI's default exception handlers. The
+            signals worth watching are 401/403 rates (auth failures), 500 errors, and response time
+            on <code className="text-xs bg-muted px-1 py-0.5 rounded">/api/posts/</code>, the main
+            data endpoint. Render shows these logs in its dashboard. Structured logging with{" "}
+            <code className="text-xs bg-muted px-1 py-0.5 rounded">structlog</code> and a log
+            drain for alerting is the next step.
           </p>
         </section>
 
-        {/* What Went Wrong / V2 */}
+        {/* What I'd Change */}
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">What I'd Change in V2</h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            The biggest technical debt in Luma came from poorly planned data models early in the build.
-            Loose model definitions caused cascading issues across the codebase — a bug in one model
-            surfaced as a confusing error somewhere else entirely, which made troubleshooting harder
-            than it needed to be.
+            The biggest source of technical debt was data models that weren't planned early. Loose
+            definitions caused cascading problems. A bug in one model would show up as a confusing
+            error somewhere else, which made troubleshooting slow.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            If I rebuilt Luma today, I'd start by mapping out exactly what data the app needs before
-            writing a single line of code. A clear schema designed upfront — with relationships and
-            constraints defined explicitly — would have prevented most of those downstream issues and
-            made the codebase easier to reason about from day one.
+            If I rebuilt Luma, I'd map out the data before writing any code. A clear schema with
+            relationships and constraints defined up front would have prevented most of those
+            issues.
           </p>
         </section>
 
@@ -259,10 +254,10 @@ const LumaArtifact = () => {
           <h2 className="text-2xl font-bold text-foreground mb-4">Security</h2>
           <ul className="space-y-2 text-muted-foreground mb-4">
             {[
-              "Passwords hashed with bcrypt — plaintext is never stored or logged",
-              "JWT tokens with expiration — short-lived access tokens, server-side validation on every protected route",
-              "All API routes require a valid Bearer token except /auth/register and /auth/login",
-              "Server-side input validation via Pydantic — invalid payloads are rejected before reaching business logic or the database",
+              "Passwords are hashed with bcrypt. Plaintext is never stored or logged.",
+              "JWT access tokens expire, and every protected route validates them server-side.",
+              "Every API route requires a valid Bearer token except /auth/register and /auth/login.",
+              "Pydantic validates input on the server, so bad payloads are rejected before they reach the database.",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="text-primary mt-1">→</span>
@@ -271,10 +266,10 @@ const LumaArtifact = () => {
             ))}
           </ul>
           <p className="text-muted-foreground leading-relaxed">
-            Input schemas (e.g. <code className="text-xs bg-muted px-1 py-0.5 rounded">PostIn</code>) are
-            kept separate from output schemas (e.g.{" "}
-            <code className="text-xs bg-muted px-1 py-0.5 rounded">PostOut</code>) to
-            control exactly what data is exposed to the client.{" "}
+            Input schemas (like <code className="text-xs bg-muted px-1 py-0.5 rounded">PostIn</code>) are
+            kept separate from output schemas (like{" "}
+            <code className="text-xs bg-muted px-1 py-0.5 rounded">PostOut</code>) to control
+            exactly what data reaches the client.{" "}
             <code className="text-xs bg-muted px-1 py-0.5 rounded">EmailStr</code> enforces email format at the boundary.
           </p>
         </section>
@@ -284,11 +279,11 @@ const LumaArtifact = () => {
           <h2 className="text-2xl font-bold text-foreground mb-4">Lessons Learned</h2>
           <ul className="space-y-2 text-muted-foreground">
             {[
-              "Design the data model before writing features — loose schema definitions caused cascading bugs that were hard to trace.",
-              "FastAPI's interactive docs at /docs dramatically speed up debugging — test the API layer directly before wiring up the frontend.",
-              "CI/CD from the start is worth it — catching lint and test failures before merge saved hours of production debugging.",
-              "Separation of input and output schemas (PostIn / PostOut) is not overhead — it's the right default for any API that exposes user data.",
-              "When you build auth from scratch once, you understand exactly when to use a managed solution instead.",
+              "Design the data model before building features. Loose schemas caused bugs that were hard to trace.",
+              "FastAPI's /docs speeds up debugging. Test the API directly before wiring up the frontend.",
+              "Set up CI from the start. Catching lint and test failures before merge saves hours later.",
+              "Separate input and output schemas (PostIn / PostOut) by default for any API that handles user data.",
+              "AI can generate working code fast, but you still have to understand it well enough to debug and explain it.",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="text-primary mt-1">→</span>
@@ -302,11 +297,10 @@ const LumaArtifact = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">How It Was Built</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Luma was a solo project built while actively learning parts of the stack. This project
-            intentionally pushed into new technologies — FastAPI, SQLAlchemy, Neon, and Render were
-            all used hands-on for the first time during this build. Each feature was built
-            end-to-end and validated through FastAPI's interactive documentation before moving
-            forward. Every bug became a learning checkpoint rather than a blocker.
+            I built Luma with AI assistance while learning parts of the stack for the first time,
+            including FastAPI, SQLAlchemy, Neon, and Render. I directed the product, chose the
+            stack, and tested each feature through FastAPI's interactive docs before moving on. I'm
+            now working through the codebase in depth so I can explain and extend every part of it.
           </p>
         </section>
       </main>

@@ -1,61 +1,67 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/florida-hero-bg.jpg";
 
 const FULL_NAME = "Sherika Fayson";
 const FULL_TITLE = "Software Engineer";
 
 const Hero = () => {
-  const navigate = useNavigate();
   const [nameText, setNameText] = useState("");
   const [titleText, setTitleText] = useState("");
   const [showCursor, setShowCursor] = useState(true);
   const [currentPhase, setCurrentPhase] = useState("name");
   const [typingComplete, setTypingComplete] = useState(false);
 
-useEffect(() => {
-  let interval;
-  if (currentPhase === "name" && nameText.length < FULL_NAME.length) {
-    interval = setTimeout(() => {
-      setNameText(FULL_NAME.slice(0, nameText.length + 1));
-    }, 100);
-  } else if (currentPhase === "name" && nameText.length === FULL_NAME.length) {
-    interval = setTimeout(() => {
-      setCurrentPhase("title");
-    }, 500);
-  } else if (
-    currentPhase === "title" &&
-    titleText.length < FULL_TITLE.length
-  ) {
-    interval = setTimeout(() => {
-      setTitleText(FULL_TITLE.slice(0, titleText.length + 1));
-    }, 100);
-  } else if (
-    currentPhase === "title" &&
-    titleText.length === FULL_TITLE.length
-  ) {
-    interval = setTimeout(() => {
-      setTypingComplete(true);
-    }, 1000);
-  }
-  return () => clearTimeout(interval);
-}, [nameText, titleText, currentPhase]);
+  useEffect(() => {
+    let interval;
+    if (currentPhase === "name" && nameText.length < FULL_NAME.length) {
+      interval = setTimeout(() => {
+        setNameText(FULL_NAME.slice(0, nameText.length + 1));
+      }, 100);
+    } else if (
+      currentPhase === "name" &&
+      nameText.length === FULL_NAME.length
+    ) {
+      interval = setTimeout(() => {
+        setCurrentPhase("title");
+      }, 500);
+    } else if (
+      currentPhase === "title" &&
+      titleText.length < FULL_TITLE.length
+    ) {
+      interval = setTimeout(() => {
+        setTitleText(FULL_TITLE.slice(0, titleText.length + 1));
+      }, 100);
+    } else if (
+      currentPhase === "title" &&
+      titleText.length === FULL_TITLE.length
+    ) {
+      interval = setTimeout(() => {
+        setTypingComplete(true);
+      }, 1000);
+    }
+    return () => clearTimeout(interval);
+  }, [nameText, titleText, currentPhase]);
 
-useEffect(() => {
-  if (!typingComplete) {
-    const cursorInterval = setInterval(() => {
-      setShowCursor((prev) => !prev);
-    }, 500);
-    return () => clearInterval(cursorInterval);
-  } else {
-    setShowCursor(false);
-  }
-}, [typingComplete]);
+  useEffect(() => {
+    if (!typingComplete) {
+      const cursorInterval = setInterval(() => {
+        setShowCursor((prev) => !prev);
+      }, 500);
+      return () => clearInterval(cursorInterval);
+    } else {
+      setShowCursor(false);
+    }
+  }, [typingComplete]);
 
   const handleContactme = () => {
     const contactSection = document.querySelector("#contact");
+    contactSection?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleViewProjects = () => {
+    const contactSection = document.querySelector("#projects");
     contactSection?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -66,7 +72,7 @@ useEffect(() => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-black/60" />
       </div>
 
       {/* Content */}
@@ -82,7 +88,7 @@ useEffect(() => {
                 )}
               </span>
             </div>
-            <div className="block font-special-elite text-4xl md:text-5xl font-normal tracking-wide">
+            <div className="block text-4xl md:text-5xl font-light text-white/90 mt-2">
               {titleText}
               {currentPhase === "title" && showCursor && (
                 <span className="animate-pulse">|</span>
@@ -90,19 +96,21 @@ useEffect(() => {
             </div>
           </h1>
           <p className="text-xl md:text-2xl mb-4 text-white/90 leading-relaxed">
-            I build full-stack web applications with React and Python — bringing Marine Corps precision and systems thinking to real-world software problems.
+            I build full-stack web applications with React and Python — bringing
+            Marine Corps precision and systems thinking to real-world software
+            problems.
           </p>
           <p className="text-lg mb-8 text-white/75 font-medium tracking-wide uppercase">
-            Open to Junior Software Engineer roles
+            Open to Software Engineer roles
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button
               size="lg"
               variant="hero"
               className="px-8 py-3 text-lg"
-              onClick={() => navigate("/artifacts")}
+              onClick={handleViewProjects}
             >
-              View Artifacts
+              View Projects
             </Button>
             <Button
               size="lg"
