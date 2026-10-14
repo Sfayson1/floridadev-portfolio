@@ -96,9 +96,9 @@ const Hero = () => {
             </div>
           </h1>
           <p className="text-xl md:text-2xl mb-4 text-white/90 leading-relaxed">
-            I build full-stack web applications with React and Python — bringing
-            Marine Corps precision and systems thinking to real-world software
-            problems.
+            I build full-stack web applications with React and Python, bringing
+            the discipline, adaptability, and problem-solving mindset I developed
+            in the Marine Corps to every project.
           </p>
           <p className="text-lg mb-8 text-white/75 font-medium tracking-wide uppercase">
             Open to Software Engineer roles
