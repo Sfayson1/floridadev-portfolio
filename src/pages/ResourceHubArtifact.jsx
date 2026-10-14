@@ -11,21 +11,27 @@ const ArchDiagram = () => (
     <div className="flex flex-col items-center gap-4 text-sm font-medium">
       <div className="w-full max-w-sm bg-gradient-ocean text-white rounded-lg px-4 py-3 text-center">
         <p className="font-semibold">Android UI Layer</p>
-        <p className="text-xs opacity-80 mt-1">XML Layouts · Activities · RecyclerView Adapters</p>
+        <p className="text-xs opacity-80 mt-1">
+          XML Layouts · Activities · RecyclerView Adapters
+        </p>
       </div>
 
       <div className="text-muted-foreground text-lg">↕</div>
 
       <div className="w-full max-w-sm bg-gradient-sunset text-white rounded-lg px-4 py-3 text-center">
         <p className="font-semibold">Application Logic</p>
-        <p className="text-xs opacity-80 mt-1">Kotlin/Java · Search · Filter · Budget Tracking</p>
+        <p className="text-xs opacity-80 mt-1">
+          Kotlin · Search · Filter · Budget Tracking
+        </p>
       </div>
 
       <div className="text-muted-foreground text-lg">↕</div>
 
       <div className="w-full max-w-sm bg-primary text-white rounded-lg px-4 py-3 text-center">
         <p className="font-semibold">Data Layer</p>
-        <p className="text-xs opacity-80 mt-1">Mock Resource Data · SharedPreferences (user data)</p>
+        <p className="text-xs opacity-80 mt-1">
+          Sample Resource Data · SharedPreferences (user data)
+        </p>
       </div>
     </div>
   </div>
@@ -50,32 +56,48 @@ const ResourceHubArtifact = () => {
 
         {/* Header */}
         <div className="mb-10">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">ResourceHub</h1>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary mb-2">
+            Course Project
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">
+            ResourceHub
+          </h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-6">
-            An Android app that connects people facing housing insecurity with local community resources — housing, food banks, job centers, and utilities — all in one place.
+            An Android prototype for finding community resources like housing,
+            food banks, job centers, and utilities in one place. It searches a
+            sample set of resources by ZIP code and includes a budget tracker.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button
               variant="outline"
               size="sm"
-              onClick={() => window.open("https://github.com/Sfayson1/ResourceHub", "_blank")}
+              onClick={() =>
+                window.open("https://github.com/Sfayson1/ResourceHub", "_blank")
+              }
             >
               <Github className="w-4 h-4 mr-2" />
               View Code
             </Button>
             <Button
               size="sm"
-              onClick={() => window.open("https://raw.githubusercontent.com/Sfayson1/ResourceHub/master/assets/resourcehub.gif", "_blank")}
+              onClick={() =>
+                window.open(
+                  "https://raw.githubusercontent.com/Sfayson1/ResourceHub/master/assets/resourcehub.gif",
+                  "_blank",
+                )
+              }
             >
               <ExternalLink className="w-4 h-4 mr-2" />
-              View Demo
+              Watch Demo
             </Button>
           </div>
         </div>
 
         <div className="flex flex-wrap gap-2 mb-8">
-          {["Kotlin", "Java", "Android Studio", "XML"].map((t) => (
-            <Badge key={t} variant="secondary">{t}</Badge>
+          {["Kotlin", "Android Studio", "XML"].map((t) => (
+            <Badge key={t} variant="secondary">
+              {t}
+            </Badge>
           ))}
         </div>
 
@@ -85,9 +107,12 @@ const ResourceHubArtifact = () => {
             { label: "Timeline", value: "5 wks" },
             { label: "Platform", value: "Android" },
             { label: "Developer", value: "Solo" },
-            { label: "Stack", value: "New" },
+            { label: "Platform to me", value: "New" },
           ].map(({ label, value }) => (
-            <div key={label} className="bg-muted/40 border border-border rounded-xl p-4 text-center">
+            <div
+              key={label}
+              className="bg-muted/40 border border-border rounded-xl p-4 text-center"
+            >
               <p className="text-2xl font-bold text-primary">{value}</p>
               <p className="text-xs text-muted-foreground mt-1">{label}</p>
             </div>
@@ -96,29 +121,33 @@ const ResourceHubArtifact = () => {
 
         {/* Problem */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground mb-4">The Problem</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            The Problem
+          </h2>
           <p className="text-muted-foreground leading-relaxed">
-            People facing housing insecurity often need multiple types of support at once — shelter,
-            food, employment, utilities assistance — but finding those resources means running
-            separate searches across different websites, phone books, and referrals. ResourceHub
-            consolidates that into a single app: search once by ZIP code, filter by what you need,
-            and get the address, phone number, and hours for resources near you. The built-in budget
-            tracker adds a second layer of practical support, helping users manage income and
-            expenses while navigating a difficult period.
+            People facing housing insecurity often need several kinds of help at
+            once: shelter, food, work, and utility assistance. Finding them
+            usually means separate searches across websites, phone books, and
+            referrals. ResourceHub puts that in one app. You search once by ZIP
+            code, filter by what you need, and see the address, phone number,
+            and hours for each resource. The budget tracker adds a simple way to
+            log income and expenses during a hard stretch.
           </p>
         </section>
 
         {/* What Done Looked Like */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground mb-4">What "Done" Looked Like</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            What "Done" Looked Like
+          </h2>
           <ul className="space-y-2 text-muted-foreground">
             {[
-              "Users can search for resources by city, ZIP code, or address",
+              "Users can search a sample set of resources by city, ZIP code, or address",
               "Resources are filterable by category: Housing, Food, Jobs, Utilities",
               "Each resource shows address, phone number, and operating hours",
               "Users can save resources to a Favorites list for quick access",
               "Budget tracker lets users log income and expenses and see remaining balance",
-              "User profile screen for managing account information",
+              "User profile screen (stored locally)",
               "App runs on Android with a working demo recorded and published",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
@@ -131,67 +160,74 @@ const ResourceHubArtifact = () => {
 
         {/* Architecture */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            Architecture
+          </h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            ResourceHub is a native Android app built in Kotlin and Java. The UI is composed of
-            Activities and XML layouts, with RecyclerView adapters handling the resource list.
-            User preferences and saved favorites are persisted with SharedPreferences. Resource
-            data is currently mocked locally to allow rapid UI and feature development within a
-            five-week timeline. The next step is integrating a real data provider — the 211 API
-            provides verified community resource data across the US, and Google Places would enable
-            map-based discovery — to power live resource search in a production version.
+            ResourceHub is a native Android app. The UI uses Activities and XML
+            layouts, with RecyclerView adapters for the resource list. Favorites
+            and user preferences are saved with SharedPreferences. Resource data
+            is hardcoded sample data, which let me build and test the full UI
+            inside a five-week timeline.
           </p>
           <ArchDiagram />
         </section>
 
         {/* Key Tradeoff */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Key Technical Decision</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            Key Technical Decision
+          </h2>
           <Card className="border-primary/20 bg-primary/5">
             <CardContent className="p-6">
-              <h3 className="font-semibold text-foreground mb-2">Building Native Android over a Cross-Platform Approach</h3>
+              <h3 className="font-semibold text-foreground mb-2">
+                Building Native Android Instead of Cross-Platform
+              </h3>
               <p className="text-muted-foreground leading-relaxed">
-                Choosing to build natively in Kotlin and Android Studio — rather than a
-                cross-platform framework — meant learning a new language, IDE, and platform
-                simultaneously within a five-week window. The tradeoff was steep upfront learning
-                cost in exchange for working directly with the Android SDK and understanding how
-                native apps are structured. The search and filter features proved to be the hardest
-                to implement — managing state across Activities and wiring up RecyclerView adapters
-                to respond correctly to filter changes required careful attention to Android's
-                lifecycle and data flow patterns.
+                Building natively meant learning a new language, IDE, and
+                platform at the same time, in five weeks. The cost was a steep
+                start. The payoff was working directly with the Android SDK and
+                understanding how native apps are put together. Search and
+                filtering were the hardest parts. Keeping state in sync across
+                Activities and getting RecyclerView adapters to update correctly
+                on filter changes forced me to really learn Android's lifecycle.
               </p>
             </CardContent>
           </Card>
         </section>
 
-        {/* What I'd Change */}
+        {/* Limitations and Next Steps */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground mb-4">What I'd Change in V2</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            Limitations and Next Steps
+          </h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            The most important upgrade is replacing the mock data with a real API. The 211 API
-            provides verified community resource data across the US and would make ResourceHub
-            genuinely useful in the real world. Google Maps integration would let users see
-            resources plotted on a map rather than just listed by address.
+            ResourceHub runs on hardcoded sample data, so it doesn't show real
+            resources yet. The biggest upgrade would be connecting a real data
+            source. The 211 API covers verified community resources across the
+            US, and Google Maps would let users see resources on a map instead
+            of a list.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            On the architecture side, I'd replace SharedPreferences with Room Database for
-            structured local storage, and migrate the UI to Jetpack Compose for a more modern
-            Android development approach. Most importantly, I'd spend more time upfront planning
-            the data models — the same lesson from building Luma. A clearer schema before writing
-            code would have made the search and filter logic cleaner from the start.
+            On the code side, I'd move from SharedPreferences to Room for
+            structured storage and try Jetpack Compose for the UI. I'd also plan
+            the data models before writing code. A clearer schema up front would
+            have made search and filtering cleaner from the start.
           </p>
         </section>
 
         {/* Lessons Learned */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Lessons Learned</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            Lessons Learned
+          </h2>
           <ul className="space-y-2 text-muted-foreground">
             {[
-              "Learning a new platform (Android) and a new language (Kotlin) simultaneously is possible — but it requires accepting that your first pass won't be clean.",
-              "Mock data is a valid first step, not a shortcut — it lets you build and validate the full UI before committing to a data provider.",
-              "Android's Activity lifecycle is unforgiving if you don't plan state management upfront — RecyclerView filters exposed this early.",
-              "Tight timelines force good prioritization — shipping a working demo in five weeks meant making deliberate tradeoffs, not cutting corners arbitrarily.",
-              "Platform adaptability is a real skill — leaving your primary stack to build something native proved that the fundamentals transfer.",
+              "You can learn a new platform and a new language at the same time, but your first pass won't be clean.",
+              "Sample data is a fine starting point. It let me build the whole UI before picking a data provider.",
+              "Plan state management early on Android. RecyclerView filtering exposed that fast.",
+              "A short deadline forces you to choose what matters and cut the rest on purpose.",
+              "The fundamentals transfer. Stepping outside my usual stack showed me that.",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="text-primary mt-1">→</span>
@@ -201,15 +237,17 @@ const ResourceHubArtifact = () => {
           </ul>
         </section>
 
-        {/* Constraints */}
+        {/* How It Was Built */}
         <section className="mb-12">
-          <h2 className="text-2xl font-bold text-foreground mb-4">How It Was Built</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-4">
+            How It Was Built
+          </h2>
           <p className="text-muted-foreground leading-relaxed">
-            ResourceHub was built solo in five weeks while learning Kotlin and Android Studio for
-            the first time. The tight timeline meant making pragmatic choices — mock data over real
-            API integration, SharedPreferences over a full database — to ship a working, demonstrable
-            app within the deadline. The result is a functional proof of concept with a clear
-            roadmap for what a production version would look like.
+            I built ResourceHub solo as a course project in five weeks, while
+            learning Kotlin and Android Studio for the first time. To ship on
+            time, I chose sample data over a live API and SharedPreferences over
+            a full database. The result is a working prototype with a clear path
+            to a production version.
           </p>
         </section>
       </main>

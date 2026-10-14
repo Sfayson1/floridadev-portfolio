@@ -9,15 +9,12 @@ const Projects = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-20 bg-muted/30" id="projects">
+    <section className="py-20 bg-muted/30 scroll-mt-24" id="projects">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             My Projects
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            A showcase of my recent work, each project built with passion and attention to detail
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -94,14 +91,14 @@ const Projects = () => {
                     onClick={() => window.open(project.live, '_blank')}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Demo
+                    {project.demoLabel || "Demo"}
                   </Button>
-                  {project.artifact && (
+                  {project.casestudy && (
                     <Button
                       size="sm"
                       variant="hero"
                       className="w-full mt-1"
-                      onClick={() => navigate(project.artifact)}
+                      onClick={() => navigate(project.casestudy)}
                     >
                       <BookOpen className="w-4 h-4 mr-2" />
                       Read Case Study

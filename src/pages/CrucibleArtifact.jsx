@@ -84,11 +84,12 @@ const CrucibleArtifact = () => {
 
         {/* Header */}
         <div className="mb-10">
-          <div className="flex flex-wrap items-center gap-3 mb-3">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground">Crucible</h1>
-          </div>
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary mb-2">
+            Built with AI assistance
+          </p>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-3">Crucible</h1>
           <p className="text-xl text-muted-foreground leading-relaxed mb-6">
-            A project collaboration platform for developers who want to build side projects together — find your team, post your idea, and ship something real.
+            A project collaboration platform for developers who want to build side projects together. Post your idea, find your team, and ship something real.
           </p>
 
           <div className="flex flex-wrap gap-3">
@@ -122,11 +123,11 @@ const CrucibleArtifact = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">The Problem</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Most developers have side project ideas they never build — not because they lack the skills,
-            but because they lack a team. Existing platforms like GitHub or Discord make it hard to
-            discover collaborators around a specific idea. Crucible is purpose-built for this: post a
-            project, define the roles you need filled, and let developers who want to contribute find you.
-            It's matchmaking for side projects.
+            Most developers have side project ideas they never build. Not because they lack the
+            skills, but because they lack a team. GitHub and Discord make it hard to find
+            collaborators around a specific idea. Crucible is built for that: post a project, list
+            the roles you need, and let developers who want to contribute find you. It's
+            matchmaking for side projects.
           </p>
         </section>
 
@@ -155,12 +156,11 @@ const CrucibleArtifact = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">Architecture</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            Crucible is a full-stack Next.js application using the App Router, deployed as a single
-            unit on Vercel. Instead of maintaining a separate backend service, server-side logic is
-            handled through Next.js Server Actions and API routes. Prisma provides type-safe database
-            access to a Neon PostgreSQL instance, while Clerk manages authentication and session
-            management. This keeps the system simple: frontend, server logic, and database access
-            live in one codebase while still maintaining clear separation of responsibilities.
+            Crucible is a full-stack Next.js app using the App Router, deployed as one unit on
+            Vercel. There's no separate backend service. Server logic runs through Next.js Server
+            Actions and API routes. Prisma handles type-safe database access to Neon PostgreSQL, and
+            Clerk handles authentication and sessions. Frontend, server logic, and database access
+            all live in one codebase, with clear boundaries between them.
           </p>
           <ArchDiagram />
         </section>
@@ -171,12 +171,10 @@ const CrucibleArtifact = () => {
           <Card className="border-primary/20 bg-primary/5">
             <CardContent className="p-6">
               <p className="text-muted-foreground leading-relaxed">
-                Crucible is intentionally built as a single full-stack application instead of a
-                microservice architecture. Using Next.js Server Actions allows frontend and backend
-                logic to live in the same codebase while still maintaining secure server-side data
-                mutations. For a project of this scale, this approach reduces infrastructure
-                complexity and deployment overhead while still supporting clear data boundaries
-                through Prisma and PostgreSQL.
+                Crucible is one full-stack app on purpose, not a set of separate services. Server
+                Actions keep frontend and backend logic in the same codebase while data changes still
+                run securely on the server. At this size, that means less infrastructure and simpler
+                deploys, with Prisma and PostgreSQL keeping the data boundaries clear.
               </p>
             </CardContent>
           </Card>
@@ -187,14 +185,12 @@ const CrucibleArtifact = () => {
           <h2 className="text-2xl font-bold text-foreground mb-4">Key Technical Decision</h2>
           <Card className="border-primary/20 bg-primary/5">
             <CardContent className="p-6">
-              <h3 className="font-semibold text-foreground mb-2">Clerk over rolling auth from scratch</h3>
+              <h3 className="font-semibold text-foreground mb-2">Clerk instead of custom auth</h3>
               <p className="text-muted-foreground leading-relaxed">
-                For Luma I built JWT auth manually — token generation, hashing, expiry, middleware.
-                For Crucible I used Clerk. The tradeoff was deliberate: Crucible's complexity lives in
-                the collaboration data model (projects → roles → applications), not in the auth layer.
-                Offloading auth to Clerk meant I could design and iterate on the core product faster,
-                with email verification, session management, and route protection handled out of the box.
-                Knowing how to build auth from scratch made it easier to evaluate when not to.
+                Luma uses custom JWT auth. For Crucible I chose Clerk instead. The complexity in
+                Crucible lives in the collaboration data model (projects → roles → applications), not
+                in auth. Handing auth to Clerk meant more time on the core product, with email
+                verification, sessions, and route protection handled out of the box.
               </p>
             </CardContent>
           </Card>
@@ -208,9 +204,9 @@ const CrucibleArtifact = () => {
           </p>
           <ul className="space-y-2 text-muted-foreground">
             {[
-              "Project — owned by a user (Clerk ID), holds title, description, and tech stack",
-              "Role — belongs to a project, has a title, required skills, and open/filled status",
-              "Application — joins a role to an applicant (Clerk ID) with a message and status (pending / accepted / rejected)",
+              "Project: owned by a user (Clerk ID), with a title, description, and tech stack",
+              "Role: belongs to a project, with a title, required skills, and open/filled status",
+              "Application: links a role to an applicant (Clerk ID), with a message and status (pending / accepted / rejected)",
             ].map((item) => (
               <li key={item} className="flex items-start gap-2">
                 <span className="text-primary mt-1">→</span>
@@ -219,8 +215,8 @@ const CrucibleArtifact = () => {
             ))}
           </ul>
           <p className="text-muted-foreground leading-relaxed mt-4">
-            Designing this schema upfront — with explicit foreign keys and cascade rules — was a direct
-            lesson carried over from Luma, where loose data models caused cascading bugs late in the build.
+            The schema was designed up front, with explicit foreign keys and cascade rules. That was
+            a lesson from Luma, where loose data models caused hard-to-trace bugs late in the build.
           </p>
         </section>
 
@@ -228,13 +224,12 @@ const CrucibleArtifact = () => {
         <section className="mb-12">
           <h2 className="text-2xl font-bold text-foreground mb-4">How It Was Built</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Crucible was built solo from scratch. Next.js 16, Prisma, and Clerk were worked with
-            hands-on for the first time during this project. The approach was the same as Luma:
-            build one vertical slice end-to-end (post a project → add a role → apply → accept),
-            validate it works, then expand. The App Router's co-location of server and client
-            components required a clearer mental model of the rendering boundary than previous
-            React work — figuring out what runs on the server vs. the client was the steepest
-            part of the learning curve.
+            I built Crucible with AI assistance while using Next.js 16, Prisma, and Clerk for the
+            first time. I directed the product and built it one vertical slice at a time (post a
+            project → add a role → apply → accept), testing each slice before expanding. The hardest
+            concept was the App Router's split between server and client components: knowing what
+            runs where. I'm working through the codebase in depth so I can explain and extend every
+            part of it.
           </p>
         </section>
       </main>

@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import Artifacts from "./pages/Artifacts";
+import CaseStudies from "./pages/CaseStudies";
 import LumaArtifact from "./pages/LumaArtifact";
 import ResourceHubArtifact from "./pages/ResourceHubArtifact";
 import CrucibleArtifact from "./pages/CrucibleArtifact";
@@ -20,10 +20,10 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/artifacts" element={<Artifacts />} />
-          <Route path="/artifacts/luma" element={<LumaArtifact />} />
-          <Route path="/artifacts/resourcehub" element={<ResourceHubArtifact />} />
-          <Route path="/artifacts/crucible" element={<CrucibleArtifact />} />
+          <Route path="/casestudies" element={<CaseStudies />} />
+          <Route path="/casestudies/luma" element={<LumaArtifact />} />
+          <Route path="/casestudies/resourcehub" element={<ResourceHubArtifact />} />
+          <Route path="/casestudies/crucible" element={<CrucibleArtifact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

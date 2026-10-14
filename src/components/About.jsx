@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Code2, Palmtree, Sun } from "lucide-react";
+import { Code2, CogIcon, CircuitBoard } from "lucide-react";
 
 const About = () => {
   return (
@@ -9,8 +9,13 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             About Me
           </h2>
-          <p className="text-xl text-muted-foreground leading-relaxed">
-            I got into software engineering during the pandemic out of boredom and curiosity — and never looked back. As a U.S. Marine Corps Aviation Avionics Technician, I was trained to follow systems, troubleshoot methodically, and not stop until the problem is solved. Turns out that's exactly what software development requires. I build full-stack web apps focused on real human problems — the kind of tools that make someone's life meaningfully easier. I'm research-oriented to a fault, stubborn when debugging, and genuinely excited by the moment something finally works.
+          <p className="text-xl text-muted-foreground leading-relaxed text-left">
+            I got into software during the pandemic, out of boredom and
+            curiosity. Before that, I was a Marine Corps Aircraft Electrical
+            Systems Technician, where I learned to troubleshoot methodically and
+            not stop until the problem was fixed. Turns out that’s most of
+            software engineering. Now I build full-stack apps that solve real
+            problems for real people.
           </p>
         </div>
 
@@ -22,7 +27,7 @@ const About = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Builds for People</h3>
               <p className="text-muted-foreground">
-                Full-stack apps with React, Python, and FastAPI — focused on real human problems, not just technical exercises
+               Full-stack apps with React, Python, and FastAPI, built around real problems
               </p>
             </CardContent>
           </Card>
@@ -30,11 +35,12 @@ const About = () => {
           <Card className="text-center p-8 shadow-florida hover:shadow-sunset transition-all duration-300 hover:-translate-y-2">
             <CardContent className="pt-6">
               <div className="w-16 h-16 bg-gradient-sunset rounded-full flex items-center justify-center mx-auto mb-4">
-                <Palmtree className="w-8 h-8 text-white" />
+                <CogIcon className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-3">Systems Thinker</h3>
               <p className="text-muted-foreground">
-                From avionics to APIs — trained as a U.S. Marine to understand systems, isolate variables, and fix root causes, not symptoms
+                Trained as a Marine to isolate variables and fix root causes,
+                not symptoms.
               </p>
             </CardContent>
           </Card>
@@ -42,11 +48,13 @@ const About = () => {
           <Card className="text-center p-8 shadow-florida hover:shadow-sunset transition-all duration-300 hover:-translate-y-2">
             <CardContent className="pt-6">
               <div className="w-16 h-16 bg-gradient-hero rounded-full flex items-center justify-center mx-auto mb-4">
-                <Sun className="w-8 h-8 text-white" />
+                <CircuitBoard className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Relentless Debugger</h3>
+              <h3 className="text-xl font-semibold mb-3">
+                Relentless Debugger
+              </h3>
               <p className="text-muted-foreground">
-                Curious and research-oriented to a fault — I don't stop at "it kind of works." I dig until I understand why it works
+                I don’t stop at “it kind of works.” I dig until I know why.
               </p>
             </CardContent>
           </Card>
@@ -58,9 +66,9 @@ const About = () => {
               Looking for a team where I can contribute from day one
             </h3>
             <p className="text-lg md:text-xl opacity-90 leading-relaxed">
-              I'm looking for a Junior Software Engineer role where I can keep growing,
-              ship real features, and build things that actually matter to the people using them.
-              If that sounds like a fit, let's talk.
+              I'm looking for a Software Engineer role where I can keep growing,
+              ship real features, and build things that actually matter to the
+              people using them. If that sounds like a fit, let's talk.
             </p>
           </div>
         </div>
