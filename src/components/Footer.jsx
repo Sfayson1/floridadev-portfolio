@@ -8,9 +8,8 @@ const Footer = () => {
           {/* Logo */}
           <div className="font-bold text-2xl mb-6">
             <span className="bg-gradient-sunset bg-clip-text text-transparent">
-              Florida
+              Sherika Fayson
             </span>
-            <span className="text-primary">Dev</span>
           </div>
 
           {/* Social Links */}
@@ -47,7 +46,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="border-t border-background/20 pt-6">
             <p className="text-background/60 flex items-center justify-center">
-              © {new Date().getFullYear()} Florida Developer Portfolio. Made with
+              © {new Date().getFullYear()} Sherika Fayson. Made with
               <Heart className="w-4 h-4 mx-1 text-red-400 fill-current" />
               in the Sunshine State
             </p>
